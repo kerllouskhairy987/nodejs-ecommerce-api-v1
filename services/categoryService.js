@@ -2,36 +2,103 @@ const slugify = require("slugify");
 const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
 
-// ** post categories
-const postCategories = asyncHandler(async (req, res) => {
+// @desc    post categories
+// @route   POST /api/v1/categories
+// @access  private
+exports.postCategories = asyncHandler(async (req, res) => {
   const name = req.body.name;
 
-  const createdCategory = await CategoryModel.create({
+  const category = await CategoryModel.create({
     name,
     slug: slugify(name),
   });
   res.status(201).json({
-    data: createdCategory,
+    data: category,
     message: "Category created successfully",
   });
 });
 
-// ** get list of categories
-const getListOfCategories = (req, res) => {
-  try {
-    CategoryModel.find()
-      .then((docs) => {
-        res.send(docs);
-      })
-      .catch((error) => {
-        res.send(error);
-      });
-  } catch (error) {
-    res.send({ message: error.message });
-  }
-};
+// @desc    get list of categories
+// @route   GET /api/v1/categories
+// @access  public
+exports.getListOfCategories = asyncHandler(async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 20;
+  const skip = (page - 1) * limit;
+  const categories = await CategoryModel.find({}).skip(skip).limit(limit);
+  res.status(200).json({
+    success: true,
+    count: categories.length,
+    page,
+    data: categories,
+    message: "Categories retrieved successfully",
+  });
+});
 
-module.exports = {
-  postCategories,
-  getListOfCategories,
-};
+// @desc    get single category by id
+// @route   GET /api/v1/categories/:id
+// @access  public
+exports.getSingleCategoryById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const category = await CategoryModel.findById(id);
+  if (!category) {
+    res.status(404).json({
+      success: false,
+      message: `Category not found with this id ${id}`,
+    });
+    return;
+  }
+  res.status(200).json({
+    success: true,
+    data: category,
+    message: "Category retrieved successfully",
+  });
+});
+
+// @desc    update category by id
+// @route   PUT /api/v1/categories/:id
+// @access  private
+exports.updateCategoryById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  const category = await CategoryModel.findByIdAndUpdate(
+    { _id: id },
+    { ...req.body, slug: slugify(req.body.name) },
+    {
+      new: true, // return the updated document after update
+      runValidators: true,
+    },
+  );
+  if (!category) {
+    res.status(404).json({
+      success: false,
+      message: `Category not found with this id ${id}`,
+    });
+    return;
+  }
+  res.status(200).json({
+    success: true,
+    data: category,
+    message: "Category updated successfully",
+  });
+});
+
+// @desc    delete category by id
+// @route   DELETE /api/v1/categories/:id
+// @access  private
+exports.deleteCategoryById = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  const category = await CategoryModel.findByIdAndDelete(id);
+  if (!category) {
+    res.status(404).json({
+      success: false,
+      message: `Category not found with this id ${id}`,
+    });
+    return;
+  }
+  res.status(204).json({
+    success: true,
+    message: "Category deleted successfully",
+  });
+});

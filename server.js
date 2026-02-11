@@ -27,7 +27,6 @@ if (process.env.NODE_ENV === "development") {
 
 // mount routes
 app.use("/api/v1/categories", categoryRoute);
-app.use("/categories", categoryRoute);
 
 app.listen(PORT, () => {
   console.log(`http://localhost:${PORT}`);
