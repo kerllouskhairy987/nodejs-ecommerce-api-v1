@@ -1,34 +1,20 @@
 const slugify = require("slugify");
+const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
 
 // ** post categories
-const postCategories = (req, res) => {
-  try {
-    const name = req.body.name;
+const postCategories = asyncHandler(async (req, res) => {
+  const name = req.body.name;
 
-    CategoryModel.create({
-      name,
-      slug: slugify(name),
-    })
-      .then((doc) => {
-        res.status(201).json(doc);
-      })
-      .catch((error) => {
-        res.status(400).send({ error: error });
-      });
-    // const newCategory = new CategoryModel({ name });
-    // newCategory
-    //   .save()
-    //   .then((doc) => {
-    //     res.send(doc);
-    //   })
-    //   .catch((error) => {
-    //     res.status(400).send({ error: error });
-    //   });
-  } catch (error) {
-    res.status(500).send({ message: error.message });
-  }
-};
+  const createdCategory = await CategoryModel.create({
+    name,
+    slug: slugify(name),
+  });
+  res.status(201).json({
+    data: createdCategory,
+    message: "Category created successfully",
+  });
+});
 
 // ** get list of categories
 const getListOfCategories = (req, res) => {
