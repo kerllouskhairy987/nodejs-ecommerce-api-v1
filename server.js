@@ -9,6 +9,7 @@ const morgan = require("morgan");
 const dbConnection = require("./config/database");
 const categoryRoute = require("./router/categoryRoute");
 const apiError = require("./utils/apiError");
+const globalErrorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -31,23 +32,21 @@ app.use("/api/v1/categories", categoryRoute);
 
 // ** 404 unhandling routes middleware
 app.use((req, res, next) => {
-  // const error = new Error(`Can't find this route: ${req.originalUrl}`);
-  // error.statusCode = 404;
-  // next(error);
   next(new apiError(`Can't find this route: ${req.originalUrl}`, 404));
 });
 
-// global error handler middleware
-app.use((err, req, res, next) => {
-  const statusCode = err.statusCode === 200 ? 500 : err.statusCode || 500;
-  const message = err.message || "Internal Server Error";
-  res.status(statusCode).json({
-    error: err,
-    message: message,
-    stack: process.env.NODE_ENV === "development" ? err.stack : undefined,
-  });
+// global error handler middleware for [express]
+app.use(globalErrorHandlingMiddleware);
+
+const server = app.listen(PORT, () => {
+  console.log(`http://localhost:${PORT}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+// ** Handle Unhandled Rejection Errors
+process.on("unhandledRejection", (err) => {
+  console.log(`unhandledRejection error: ${err}`);
+  server.close(() => {
+    console.log("shutting down...");
+    process.exit(1);
+  });
 });
