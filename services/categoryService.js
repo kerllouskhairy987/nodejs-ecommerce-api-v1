@@ -43,11 +43,6 @@ exports.getSingleCategoryById = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const category = await CategoryModel.findById(id);
   if (!category) {
-    // res.status(404).json({
-    //   success: false,
-    //   message: `Category not found with this id ${id}`,
-    // });
-    // return;
     return next(new apiError(`Category not found with this id ${id}`, 404));
   }
   res.status(200).json({
@@ -72,11 +67,6 @@ exports.updateCategoryById = asyncHandler(async (req, res, next) => {
     },
   );
   if (!category) {
-    // res.status(404).json({
-    //   success: false,
-    //   message: `Category not found with this id ${id}`,
-    // });
-    // return;
     return next(new apiError(`Category not found with this id ${id}`, 404));
   }
   res.status(200).json({
