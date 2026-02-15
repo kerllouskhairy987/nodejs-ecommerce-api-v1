@@ -1,5 +1,5 @@
 const globalErrorHandlingMiddleware = (err, req, res, next) => {
-  const statusCode = err.statusCode === 200 ? 500 : err.statusCode || 500;
+  const statusCode = (err.statusCode === 200 ? 500 : err.statusCode) || 500;
   const message = err.message || "Internal Server Error";
   res.status(statusCode).json({
     statusCode,

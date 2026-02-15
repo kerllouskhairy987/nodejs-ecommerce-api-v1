@@ -30,12 +30,12 @@ if (process.env.NODE_ENV === "development") {
 // mount routes
 app.use("/api/v1/categories", categoryRoute);
 
-// ** 404 unhandling routes middleware
+// ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {
   next(new apiError(`Can't find this route: ${req.originalUrl}`, 404));
 });
 
-// global error handler middleware for [express]
+// global error handler middleware for [express] (outside express)
 app.use(globalErrorHandlingMiddleware);
 
 const server = app.listen(PORT, () => {

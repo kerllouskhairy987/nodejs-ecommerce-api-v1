@@ -16,13 +16,13 @@ const {
 
 const router = express.Router();
 
-// @desc   /api/v1/categories
+// @route   /api/v1/categories/
 router
   .route("/")
   .get(getListOfCategories)
   .post(createCategoryValidator, postCategories);
 
-// @desc   /api/v1/categories/:id
+// @route   /api/v1/categories/:id
 router
   .route("/:id")
   .get(getCategoryValidator, getSingleCategoryById)
