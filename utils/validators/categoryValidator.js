@@ -12,7 +12,7 @@ exports.getCategoryValidator = [
 // @desc   validators for create category routes
 exports.createCategoryValidator = [
   check("name")
-    .isEmpty()
+    .notEmpty()
     .withMessage("Category name is required")
     .isLength({ min: 3 })
     .withMessage("Category name must be at least 3 characters")

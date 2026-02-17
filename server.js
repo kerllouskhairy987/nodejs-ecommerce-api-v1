@@ -1,4 +1,5 @@
 const dns = require("dns");
+
 dns.setDefaultResultOrder("ipv4first");
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
 // packages
@@ -8,8 +9,9 @@ const morgan = require("morgan");
 // files
 const dbConnection = require("./config/database");
 const categoryRoute = require("./router/categoryRoute");
-const apiError = require("./utils/apiError");
+const ApiError = require("./utils/apiError");
 const globalErrorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
+const subCategoryRoute = require("./router/subCategoryRoute");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -29,10 +31,11 @@ if (process.env.NODE_ENV === "development") {
 
 // mount routes
 app.use("/api/v1/categories", categoryRoute);
+app.use("/api/v1/subcategories", subCategoryRoute);
 
 // ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {
-  next(new apiError(`Can't find this route: ${req.originalUrl}`, 404));
+  next(new ApiError(`Can't find this route: ${req.originalUrl}`, 404));
 });
 
 // global error handler middleware for [express] (outside express)

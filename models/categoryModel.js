@@ -1,4 +1,4 @@
-const { mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 // ** 2- make schema && 3- make modal
 const categorySchema = new mongoose.Schema(
@@ -6,8 +6,8 @@ const categorySchema = new mongoose.Schema(
     name: {
       type: String,
       required: [true, "category name is required"],
-      unique: true,
       trim: true,
+      unique: [true, "category name must be unique"],
       minlength: [3, "category name must be at least 3 characters"],
       maxlength: [32, "category name must be at most 32 characters"],
     },

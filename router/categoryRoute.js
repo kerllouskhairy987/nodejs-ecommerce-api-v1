@@ -1,5 +1,7 @@
 const express = require("express");
 
+const router = express.Router();
+
 const {
   postCategories,
   getListOfCategories,
@@ -13,8 +15,6 @@ const {
   deleteCategoryValidator,
   updateCategoryValidator,
 } = require("../utils/validators/categoryValidator");
-
-const router = express.Router();
 
 // @route   /api/v1/categories/
 router

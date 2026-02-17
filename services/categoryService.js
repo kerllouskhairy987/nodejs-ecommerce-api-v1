@@ -1,13 +1,13 @@
 const slugify = require("slugify");
 const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
-const apiError = require("../utils/apiError");
+const ApiError = require("../utils/apiError");
 
 // @desc    post categories
 // @route   POST /api/v1/categories
 // @access  private
 exports.postCategories = asyncHandler(async (req, res) => {
-  const name = req.body.name;
+  const { name } = req.body;
 
   const category = await CategoryModel.create({
     name,
@@ -23,10 +23,16 @@ exports.postCategories = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/categories
 // @access  public
 exports.getListOfCategories = asyncHandler(async (req, res) => {
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 20;
+  const page = Number(req.query.page) || 1;
+  const limit = Number(req.query.limit) || 20;
   const skip = (page - 1) * limit;
-  const categories = await CategoryModel.find({}).skip(skip).limit(limit);
+
+  const categories = await CategoryModel.find({})
+    .skip(skip)
+    .limit(limit)
+    .sort({ createdAt: req.query.sort === "asc" ? 1 : -1 })
+    .lean();
+
   res.status(200).json({
     success: true,
     count: categories.length,
@@ -43,7 +49,7 @@ exports.getSingleCategoryById = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const category = await CategoryModel.findById(id);
   if (!category) {
-    return next(new apiError(`Category not found with this id ${id}`, 404));
+    return next(new ApiError(`Category not found with this id ${id}`, 404));
   }
   res.status(200).json({
     success: true,
@@ -60,14 +66,14 @@ exports.updateCategoryById = asyncHandler(async (req, res, next) => {
 
   const category = await CategoryModel.findByIdAndUpdate(
     { _id: id },
-    { ...req.body, slug: slugify(req.body.name) },
+    { name: req.body.name, slug: slugify(req.body.name) },
     {
       new: true, // return the updated document after update
       runValidators: true,
     },
   );
   if (!category) {
-    return next(new apiError(`Category not found with this id ${id}`, 404));
+    return next(new ApiError(`Category not found with this id ${id}`, 404));
   }
   res.status(200).json({
     success: true,
@@ -84,9 +90,9 @@ exports.deleteCategoryById = asyncHandler(async (req, res, next) => {
 
   const category = await CategoryModel.findByIdAndDelete(id);
   if (!category) {
-    return next(new apiError(`Category not found with this id ${id}`, 404));
+    return next(new ApiError(`Category not found with this id ${id}`, 404));
   }
-  res.status(204).json({
+  res.status(200).json({
     success: true,
     message: "Category deleted successfully",
   });
