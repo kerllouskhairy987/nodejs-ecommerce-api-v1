@@ -3,6 +3,7 @@
   "separators.enabledFoldingRanges": ["Comments", "Imports", "Regions"],
   "separators.enabledSymbols": [
     "Classes",
+    "Constructors",
     "Enums",
     "Functions",
     "Interfaces",

@@ -8,10 +8,13 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 // files
 const dbConnection = require("./config/database");
-const categoryRoute = require("./router/categoryRoute");
 const ApiError = require("./utils/apiError");
 const globalErrorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
+// routes
+const categoryRoute = require("./router/categoryRoute");
 const subCategoryRoute = require("./router/subCategoryRoute");
+const brandRoute = require("./router/brandRoute");
+const productRoute = require("./router/productRoute");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -32,6 +35,8 @@ if (process.env.NODE_ENV === "development") {
 // mount routes
 app.use("/api/v1/categories", categoryRoute);
 app.use("/api/v1/subcategories", subCategoryRoute);
+app.use("/api/v1/brands", brandRoute);
+app.use("/api/v1/products", productRoute);
 
 // ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {

@@ -1,14 +1,6 @@
 const { check } = require("express-validator");
 const validateMiddleware = require("../../middlewares/categoryMiddleware");
 
-// @desc   validators for get category routes
-exports.getCategoryValidator = [
-  // 1- Rules
-  check("id").isMongoId().withMessage("Invalid category ID format"),
-  // 2- middleware ==> catches errors from rules if exists
-  validateMiddleware,
-];
-
 // @desc   validators for create category routes
 exports.createCategoryValidator = [
   check("name")
@@ -19,6 +11,14 @@ exports.createCategoryValidator = [
     .isLength({ max: 32 })
     .withMessage("Category name must be at most 32 characters")
     .trim(),
+  validateMiddleware,
+];
+
+// @desc   validators for get category routes
+exports.getCategoryValidator = [
+  // 1- Rules
+  check("id").isMongoId().withMessage("Invalid category ID format"),
+  // 2- middleware ==> catches errors from rules if exists
   validateMiddleware,
 ];
 
