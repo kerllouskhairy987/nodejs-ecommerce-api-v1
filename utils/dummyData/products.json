@@ -1,0 +1,4002 @@
+[
+    {
+        "title": "Product 1",
+        "description": "This is a long dummy description for product 1 with enough characters to pass validation.",
+        "quantity": 11,
+        "sold": 1,
+        "price": 101,
+        "priceAfterDiscount": 91,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-1-cover.jpg",
+        "images": [
+            "product-1-1.jpg",
+            "product-1-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 2
+    },
+    {
+        "title": "Product 2",
+        "description": "This is a long dummy description for product 2 with enough characters to pass validation.",
+        "quantity": 12,
+        "sold": 2,
+        "price": 102,
+        "priceAfterDiscount": 92,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-2-cover.jpg",
+        "images": [
+            "product-2-1.jpg",
+            "product-2-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 4
+    },
+    {
+        "title": "Product 3",
+        "description": "This is a long dummy description for product 3 with enough characters to pass validation.",
+        "quantity": 13,
+        "sold": 3,
+        "price": 103,
+        "priceAfterDiscount": 93,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-3-cover.jpg",
+        "images": [
+            "product-3-1.jpg",
+            "product-3-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 6
+    },
+    {
+        "title": "Product 4",
+        "description": "This is a long dummy description for product 4 with enough characters to pass validation.",
+        "quantity": 14,
+        "sold": 4,
+        "price": 104,
+        "priceAfterDiscount": 94,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-4-cover.jpg",
+        "images": [
+            "product-4-1.jpg",
+            "product-4-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 8
+    },
+    {
+        "title": "Product 5",
+        "description": "This is a long dummy description for product 5 with enough characters to pass validation.",
+        "quantity": 15,
+        "sold": 5,
+        "price": 105,
+        "priceAfterDiscount": 95,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-5-cover.jpg",
+        "images": [
+            "product-5-1.jpg",
+            "product-5-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 10
+    },
+    {
+        "title": "Product 6",
+        "description": "This is a long dummy description for product 6 with enough characters to pass validation.",
+        "quantity": 16,
+        "sold": 6,
+        "price": 106,
+        "priceAfterDiscount": 96,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-6-cover.jpg",
+        "images": [
+            "product-6-1.jpg",
+            "product-6-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 12
+    },
+    {
+        "title": "Product 7",
+        "description": "This is a long dummy description for product 7 with enough characters to pass validation.",
+        "quantity": 17,
+        "sold": 7,
+        "price": 107,
+        "priceAfterDiscount": 97,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-7-cover.jpg",
+        "images": [
+            "product-7-1.jpg",
+            "product-7-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 14
+    },
+    {
+        "title": "Product 8",
+        "description": "This is a long dummy description for product 8 with enough characters to pass validation.",
+        "quantity": 18,
+        "sold": 8,
+        "price": 108,
+        "priceAfterDiscount": 98,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-8-cover.jpg",
+        "images": [
+            "product-8-1.jpg",
+            "product-8-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 16
+    },
+    {
+        "title": "Product 9",
+        "description": "This is a long dummy description for product 9 with enough characters to pass validation.",
+        "quantity": 19,
+        "sold": 9,
+        "price": 109,
+        "priceAfterDiscount": 99,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-9-cover.jpg",
+        "images": [
+            "product-9-1.jpg",
+            "product-9-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 18
+    },
+    {
+        "title": "Product 10",
+        "description": "This is a long dummy description for product 10 with enough characters to pass validation.",
+        "quantity": 20,
+        "sold": 10,
+        "price": 110,
+        "priceAfterDiscount": 100,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-10-cover.jpg",
+        "images": [
+            "product-10-1.jpg",
+            "product-10-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 20
+    },
+    {
+        "title": "Product 11",
+        "description": "This is a long dummy description for product 11 with enough characters to pass validation.",
+        "quantity": 21,
+        "sold": 11,
+        "price": 111,
+        "priceAfterDiscount": 101,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-11-cover.jpg",
+        "images": [
+            "product-11-1.jpg",
+            "product-11-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 22
+    },
+    {
+        "title": "Product 12",
+        "description": "This is a long dummy description for product 12 with enough characters to pass validation.",
+        "quantity": 22,
+        "sold": 12,
+        "price": 112,
+        "priceAfterDiscount": 102,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-12-cover.jpg",
+        "images": [
+            "product-12-1.jpg",
+            "product-12-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 24
+    },
+    {
+        "title": "Product 13",
+        "description": "This is a long dummy description for product 13 with enough characters to pass validation.",
+        "quantity": 23,
+        "sold": 13,
+        "price": 113,
+        "priceAfterDiscount": 103,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-13-cover.jpg",
+        "images": [
+            "product-13-1.jpg",
+            "product-13-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 26
+    },
+    {
+        "title": "Product 14",
+        "description": "This is a long dummy description for product 14 with enough characters to pass validation.",
+        "quantity": 24,
+        "sold": 14,
+        "price": 114,
+        "priceAfterDiscount": 104,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-14-cover.jpg",
+        "images": [
+            "product-14-1.jpg",
+            "product-14-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 28
+    },
+    {
+        "title": "Product 15",
+        "description": "This is a long dummy description for product 15 with enough characters to pass validation.",
+        "quantity": 25,
+        "sold": 15,
+        "price": 115,
+        "priceAfterDiscount": 105,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-15-cover.jpg",
+        "images": [
+            "product-15-1.jpg",
+            "product-15-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 30
+    },
+    {
+        "title": "Product 16",
+        "description": "This is a long dummy description for product 16 with enough characters to pass validation.",
+        "quantity": 26,
+        "sold": 16,
+        "price": 116,
+        "priceAfterDiscount": 106,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-16-cover.jpg",
+        "images": [
+            "product-16-1.jpg",
+            "product-16-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 32
+    },
+    {
+        "title": "Product 17",
+        "description": "This is a long dummy description for product 17 with enough characters to pass validation.",
+        "quantity": 27,
+        "sold": 17,
+        "price": 117,
+        "priceAfterDiscount": 107,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-17-cover.jpg",
+        "images": [
+            "product-17-1.jpg",
+            "product-17-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 34
+    },
+    {
+        "title": "Product 18",
+        "description": "This is a long dummy description for product 18 with enough characters to pass validation.",
+        "quantity": 28,
+        "sold": 18,
+        "price": 118,
+        "priceAfterDiscount": 108,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-18-cover.jpg",
+        "images": [
+            "product-18-1.jpg",
+            "product-18-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 36
+    },
+    {
+        "title": "Product 19",
+        "description": "This is a long dummy description for product 19 with enough characters to pass validation.",
+        "quantity": 29,
+        "sold": 19,
+        "price": 119,
+        "priceAfterDiscount": 109,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-19-cover.jpg",
+        "images": [
+            "product-19-1.jpg",
+            "product-19-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 38
+    },
+    {
+        "title": "Product 20",
+        "description": "This is a long dummy description for product 20 with enough characters to pass validation.",
+        "quantity": 30,
+        "sold": 0,
+        "price": 120,
+        "priceAfterDiscount": 110,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-20-cover.jpg",
+        "images": [
+            "product-20-1.jpg",
+            "product-20-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 40
+    },
+    {
+        "title": "Product 21",
+        "description": "This is a long dummy description for product 21 with enough characters to pass validation.",
+        "quantity": 31,
+        "sold": 1,
+        "price": 121,
+        "priceAfterDiscount": 111,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-21-cover.jpg",
+        "images": [
+            "product-21-1.jpg",
+            "product-21-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 42
+    },
+    {
+        "title": "Product 22",
+        "description": "This is a long dummy description for product 22 with enough characters to pass validation.",
+        "quantity": 32,
+        "sold": 2,
+        "price": 122,
+        "priceAfterDiscount": 112,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-22-cover.jpg",
+        "images": [
+            "product-22-1.jpg",
+            "product-22-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 44
+    },
+    {
+        "title": "Product 23",
+        "description": "This is a long dummy description for product 23 with enough characters to pass validation.",
+        "quantity": 33,
+        "sold": 3,
+        "price": 123,
+        "priceAfterDiscount": 113,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-23-cover.jpg",
+        "images": [
+            "product-23-1.jpg",
+            "product-23-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 46
+    },
+    {
+        "title": "Product 24",
+        "description": "This is a long dummy description for product 24 with enough characters to pass validation.",
+        "quantity": 34,
+        "sold": 4,
+        "price": 124,
+        "priceAfterDiscount": 114,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-24-cover.jpg",
+        "images": [
+            "product-24-1.jpg",
+            "product-24-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 48
+    },
+    {
+        "title": "Product 25",
+        "description": "This is a long dummy description for product 25 with enough characters to pass validation.",
+        "quantity": 35,
+        "sold": 5,
+        "price": 125,
+        "priceAfterDiscount": 115,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-25-cover.jpg",
+        "images": [
+            "product-25-1.jpg",
+            "product-25-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 50
+    },
+    {
+        "title": "Product 26",
+        "description": "This is a long dummy description for product 26 with enough characters to pass validation.",
+        "quantity": 36,
+        "sold": 6,
+        "price": 126,
+        "priceAfterDiscount": 116,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-26-cover.jpg",
+        "images": [
+            "product-26-1.jpg",
+            "product-26-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 52
+    },
+    {
+        "title": "Product 27",
+        "description": "This is a long dummy description for product 27 with enough characters to pass validation.",
+        "quantity": 37,
+        "sold": 7,
+        "price": 127,
+        "priceAfterDiscount": 117,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-27-cover.jpg",
+        "images": [
+            "product-27-1.jpg",
+            "product-27-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 54
+    },
+    {
+        "title": "Product 28",
+        "description": "This is a long dummy description for product 28 with enough characters to pass validation.",
+        "quantity": 38,
+        "sold": 8,
+        "price": 128,
+        "priceAfterDiscount": 118,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-28-cover.jpg",
+        "images": [
+            "product-28-1.jpg",
+            "product-28-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 56
+    },
+    {
+        "title": "Product 29",
+        "description": "This is a long dummy description for product 29 with enough characters to pass validation.",
+        "quantity": 39,
+        "sold": 9,
+        "price": 129,
+        "priceAfterDiscount": 119,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-29-cover.jpg",
+        "images": [
+            "product-29-1.jpg",
+            "product-29-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 58
+    },
+    {
+        "title": "Product 30",
+        "description": "This is a long dummy description for product 30 with enough characters to pass validation.",
+        "quantity": 40,
+        "sold": 10,
+        "price": 130,
+        "priceAfterDiscount": 120,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-30-cover.jpg",
+        "images": [
+            "product-30-1.jpg",
+            "product-30-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 60
+    },
+    {
+        "title": "Product 31",
+        "description": "This is a long dummy description for product 31 with enough characters to pass validation.",
+        "quantity": 41,
+        "sold": 11,
+        "price": 131,
+        "priceAfterDiscount": 121,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-31-cover.jpg",
+        "images": [
+            "product-31-1.jpg",
+            "product-31-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 62
+    },
+    {
+        "title": "Product 32",
+        "description": "This is a long dummy description for product 32 with enough characters to pass validation.",
+        "quantity": 42,
+        "sold": 12,
+        "price": 132,
+        "priceAfterDiscount": 122,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-32-cover.jpg",
+        "images": [
+            "product-32-1.jpg",
+            "product-32-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 64
+    },
+    {
+        "title": "Product 33",
+        "description": "This is a long dummy description for product 33 with enough characters to pass validation.",
+        "quantity": 43,
+        "sold": 13,
+        "price": 133,
+        "priceAfterDiscount": 123,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-33-cover.jpg",
+        "images": [
+            "product-33-1.jpg",
+            "product-33-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 66
+    },
+    {
+        "title": "Product 34",
+        "description": "This is a long dummy description for product 34 with enough characters to pass validation.",
+        "quantity": 44,
+        "sold": 14,
+        "price": 134,
+        "priceAfterDiscount": 124,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-34-cover.jpg",
+        "images": [
+            "product-34-1.jpg",
+            "product-34-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 68
+    },
+    {
+        "title": "Product 35",
+        "description": "This is a long dummy description for product 35 with enough characters to pass validation.",
+        "quantity": 45,
+        "sold": 15,
+        "price": 135,
+        "priceAfterDiscount": 125,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-35-cover.jpg",
+        "images": [
+            "product-35-1.jpg",
+            "product-35-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 70
+    },
+    {
+        "title": "Product 36",
+        "description": "This is a long dummy description for product 36 with enough characters to pass validation.",
+        "quantity": 46,
+        "sold": 16,
+        "price": 136,
+        "priceAfterDiscount": 126,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-36-cover.jpg",
+        "images": [
+            "product-36-1.jpg",
+            "product-36-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 72
+    },
+    {
+        "title": "Product 37",
+        "description": "This is a long dummy description for product 37 with enough characters to pass validation.",
+        "quantity": 47,
+        "sold": 17,
+        "price": 137,
+        "priceAfterDiscount": 127,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-37-cover.jpg",
+        "images": [
+            "product-37-1.jpg",
+            "product-37-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 74
+    },
+    {
+        "title": "Product 38",
+        "description": "This is a long dummy description for product 38 with enough characters to pass validation.",
+        "quantity": 48,
+        "sold": 18,
+        "price": 138,
+        "priceAfterDiscount": 128,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-38-cover.jpg",
+        "images": [
+            "product-38-1.jpg",
+            "product-38-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 76
+    },
+    {
+        "title": "Product 39",
+        "description": "This is a long dummy description for product 39 with enough characters to pass validation.",
+        "quantity": 49,
+        "sold": 19,
+        "price": 139,
+        "priceAfterDiscount": 129,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-39-cover.jpg",
+        "images": [
+            "product-39-1.jpg",
+            "product-39-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 78
+    },
+    {
+        "title": "Product 40",
+        "description": "This is a long dummy description for product 40 with enough characters to pass validation.",
+        "quantity": 50,
+        "sold": 0,
+        "price": 140,
+        "priceAfterDiscount": 130,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-40-cover.jpg",
+        "images": [
+            "product-40-1.jpg",
+            "product-40-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 80
+    },
+    {
+        "title": "Product 41",
+        "description": "This is a long dummy description for product 41 with enough characters to pass validation.",
+        "quantity": 51,
+        "sold": 1,
+        "price": 141,
+        "priceAfterDiscount": 131,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-41-cover.jpg",
+        "images": [
+            "product-41-1.jpg",
+            "product-41-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 82
+    },
+    {
+        "title": "Product 42",
+        "description": "This is a long dummy description for product 42 with enough characters to pass validation.",
+        "quantity": 52,
+        "sold": 2,
+        "price": 142,
+        "priceAfterDiscount": 132,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-42-cover.jpg",
+        "images": [
+            "product-42-1.jpg",
+            "product-42-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 84
+    },
+    {
+        "title": "Product 43",
+        "description": "This is a long dummy description for product 43 with enough characters to pass validation.",
+        "quantity": 53,
+        "sold": 3,
+        "price": 143,
+        "priceAfterDiscount": 133,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-43-cover.jpg",
+        "images": [
+            "product-43-1.jpg",
+            "product-43-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 86
+    },
+    {
+        "title": "Product 44",
+        "description": "This is a long dummy description for product 44 with enough characters to pass validation.",
+        "quantity": 54,
+        "sold": 4,
+        "price": 144,
+        "priceAfterDiscount": 134,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-44-cover.jpg",
+        "images": [
+            "product-44-1.jpg",
+            "product-44-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 88
+    },
+    {
+        "title": "Product 45",
+        "description": "This is a long dummy description for product 45 with enough characters to pass validation.",
+        "quantity": 55,
+        "sold": 5,
+        "price": 145,
+        "priceAfterDiscount": 135,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-45-cover.jpg",
+        "images": [
+            "product-45-1.jpg",
+            "product-45-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 90
+    },
+    {
+        "title": "Product 46",
+        "description": "This is a long dummy description for product 46 with enough characters to pass validation.",
+        "quantity": 56,
+        "sold": 6,
+        "price": 146,
+        "priceAfterDiscount": 136,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-46-cover.jpg",
+        "images": [
+            "product-46-1.jpg",
+            "product-46-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 92
+    },
+    {
+        "title": "Product 47",
+        "description": "This is a long dummy description for product 47 with enough characters to pass validation.",
+        "quantity": 57,
+        "sold": 7,
+        "price": 147,
+        "priceAfterDiscount": 137,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-47-cover.jpg",
+        "images": [
+            "product-47-1.jpg",
+            "product-47-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 94
+    },
+    {
+        "title": "Product 48",
+        "description": "This is a long dummy description for product 48 with enough characters to pass validation.",
+        "quantity": 58,
+        "sold": 8,
+        "price": 148,
+        "priceAfterDiscount": 138,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-48-cover.jpg",
+        "images": [
+            "product-48-1.jpg",
+            "product-48-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 96
+    },
+    {
+        "title": "Product 49",
+        "description": "This is a long dummy description for product 49 with enough characters to pass validation.",
+        "quantity": 59,
+        "sold": 9,
+        "price": 149,
+        "priceAfterDiscount": 139,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-49-cover.jpg",
+        "images": [
+            "product-49-1.jpg",
+            "product-49-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 98
+    },
+    {
+        "title": "Product 50",
+        "description": "This is a long dummy description for product 50 with enough characters to pass validation.",
+        "quantity": 60,
+        "sold": 10,
+        "price": 150,
+        "priceAfterDiscount": 140,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-50-cover.jpg",
+        "images": [
+            "product-50-1.jpg",
+            "product-50-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 100
+    },
+    {
+        "title": "Product 51",
+        "description": "This is a long dummy description for product 51 with enough characters to pass validation.",
+        "quantity": 61,
+        "sold": 11,
+        "price": 151,
+        "priceAfterDiscount": 141,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-51-cover.jpg",
+        "images": [
+            "product-51-1.jpg",
+            "product-51-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 102
+    },
+    {
+        "title": "Product 52",
+        "description": "This is a long dummy description for product 52 with enough characters to pass validation.",
+        "quantity": 62,
+        "sold": 12,
+        "price": 152,
+        "priceAfterDiscount": 142,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-52-cover.jpg",
+        "images": [
+            "product-52-1.jpg",
+            "product-52-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 104
+    },
+    {
+        "title": "Product 53",
+        "description": "This is a long dummy description for product 53 with enough characters to pass validation.",
+        "quantity": 63,
+        "sold": 13,
+        "price": 153,
+        "priceAfterDiscount": 143,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-53-cover.jpg",
+        "images": [
+            "product-53-1.jpg",
+            "product-53-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 106
+    },
+    {
+        "title": "Product 54",
+        "description": "This is a long dummy description for product 54 with enough characters to pass validation.",
+        "quantity": 64,
+        "sold": 14,
+        "price": 154,
+        "priceAfterDiscount": 144,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-54-cover.jpg",
+        "images": [
+            "product-54-1.jpg",
+            "product-54-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 108
+    },
+    {
+        "title": "Product 55",
+        "description": "This is a long dummy description for product 55 with enough characters to pass validation.",
+        "quantity": 65,
+        "sold": 15,
+        "price": 155,
+        "priceAfterDiscount": 145,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-55-cover.jpg",
+        "images": [
+            "product-55-1.jpg",
+            "product-55-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 110
+    },
+    {
+        "title": "Product 56",
+        "description": "This is a long dummy description for product 56 with enough characters to pass validation.",
+        "quantity": 66,
+        "sold": 16,
+        "price": 156,
+        "priceAfterDiscount": 146,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-56-cover.jpg",
+        "images": [
+            "product-56-1.jpg",
+            "product-56-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 112
+    },
+    {
+        "title": "Product 57",
+        "description": "This is a long dummy description for product 57 with enough characters to pass validation.",
+        "quantity": 67,
+        "sold": 17,
+        "price": 157,
+        "priceAfterDiscount": 147,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-57-cover.jpg",
+        "images": [
+            "product-57-1.jpg",
+            "product-57-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 114
+    },
+    {
+        "title": "Product 58",
+        "description": "This is a long dummy description for product 58 with enough characters to pass validation.",
+        "quantity": 68,
+        "sold": 18,
+        "price": 158,
+        "priceAfterDiscount": 148,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-58-cover.jpg",
+        "images": [
+            "product-58-1.jpg",
+            "product-58-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 116
+    },
+    {
+        "title": "Product 59",
+        "description": "This is a long dummy description for product 59 with enough characters to pass validation.",
+        "quantity": 69,
+        "sold": 19,
+        "price": 159,
+        "priceAfterDiscount": 149,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-59-cover.jpg",
+        "images": [
+            "product-59-1.jpg",
+            "product-59-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 118
+    },
+    {
+        "title": "Product 60",
+        "description": "This is a long dummy description for product 60 with enough characters to pass validation.",
+        "quantity": 70,
+        "sold": 0,
+        "price": 160,
+        "priceAfterDiscount": 150,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-60-cover.jpg",
+        "images": [
+            "product-60-1.jpg",
+            "product-60-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 120
+    },
+    {
+        "title": "Product 61",
+        "description": "This is a long dummy description for product 61 with enough characters to pass validation.",
+        "quantity": 71,
+        "sold": 1,
+        "price": 161,
+        "priceAfterDiscount": 151,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-61-cover.jpg",
+        "images": [
+            "product-61-1.jpg",
+            "product-61-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 122
+    },
+    {
+        "title": "Product 62",
+        "description": "This is a long dummy description for product 62 with enough characters to pass validation.",
+        "quantity": 72,
+        "sold": 2,
+        "price": 162,
+        "priceAfterDiscount": 152,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-62-cover.jpg",
+        "images": [
+            "product-62-1.jpg",
+            "product-62-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 124
+    },
+    {
+        "title": "Product 63",
+        "description": "This is a long dummy description for product 63 with enough characters to pass validation.",
+        "quantity": 73,
+        "sold": 3,
+        "price": 163,
+        "priceAfterDiscount": 153,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-63-cover.jpg",
+        "images": [
+            "product-63-1.jpg",
+            "product-63-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 126
+    },
+    {
+        "title": "Product 64",
+        "description": "This is a long dummy description for product 64 with enough characters to pass validation.",
+        "quantity": 74,
+        "sold": 4,
+        "price": 164,
+        "priceAfterDiscount": 154,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-64-cover.jpg",
+        "images": [
+            "product-64-1.jpg",
+            "product-64-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 128
+    },
+    {
+        "title": "Product 65",
+        "description": "This is a long dummy description for product 65 with enough characters to pass validation.",
+        "quantity": 75,
+        "sold": 5,
+        "price": 165,
+        "priceAfterDiscount": 155,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-65-cover.jpg",
+        "images": [
+            "product-65-1.jpg",
+            "product-65-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 130
+    },
+    {
+        "title": "Product 66",
+        "description": "This is a long dummy description for product 66 with enough characters to pass validation.",
+        "quantity": 76,
+        "sold": 6,
+        "price": 166,
+        "priceAfterDiscount": 156,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-66-cover.jpg",
+        "images": [
+            "product-66-1.jpg",
+            "product-66-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 132
+    },
+    {
+        "title": "Product 67",
+        "description": "This is a long dummy description for product 67 with enough characters to pass validation.",
+        "quantity": 77,
+        "sold": 7,
+        "price": 167,
+        "priceAfterDiscount": 157,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-67-cover.jpg",
+        "images": [
+            "product-67-1.jpg",
+            "product-67-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 134
+    },
+    {
+        "title": "Product 68",
+        "description": "This is a long dummy description for product 68 with enough characters to pass validation.",
+        "quantity": 78,
+        "sold": 8,
+        "price": 168,
+        "priceAfterDiscount": 158,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-68-cover.jpg",
+        "images": [
+            "product-68-1.jpg",
+            "product-68-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 136
+    },
+    {
+        "title": "Product 69",
+        "description": "This is a long dummy description for product 69 with enough characters to pass validation.",
+        "quantity": 79,
+        "sold": 9,
+        "price": 169,
+        "priceAfterDiscount": 159,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-69-cover.jpg",
+        "images": [
+            "product-69-1.jpg",
+            "product-69-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 138
+    },
+    {
+        "title": "Product 70",
+        "description": "This is a long dummy description for product 70 with enough characters to pass validation.",
+        "quantity": 80,
+        "sold": 10,
+        "price": 170,
+        "priceAfterDiscount": 160,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-70-cover.jpg",
+        "images": [
+            "product-70-1.jpg",
+            "product-70-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 140
+    },
+    {
+        "title": "Product 71",
+        "description": "This is a long dummy description for product 71 with enough characters to pass validation.",
+        "quantity": 81,
+        "sold": 11,
+        "price": 171,
+        "priceAfterDiscount": 161,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-71-cover.jpg",
+        "images": [
+            "product-71-1.jpg",
+            "product-71-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 142
+    },
+    {
+        "title": "Product 72",
+        "description": "This is a long dummy description for product 72 with enough characters to pass validation.",
+        "quantity": 82,
+        "sold": 12,
+        "price": 172,
+        "priceAfterDiscount": 162,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-72-cover.jpg",
+        "images": [
+            "product-72-1.jpg",
+            "product-72-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 144
+    },
+    {
+        "title": "Product 73",
+        "description": "This is a long dummy description for product 73 with enough characters to pass validation.",
+        "quantity": 83,
+        "sold": 13,
+        "price": 173,
+        "priceAfterDiscount": 163,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-73-cover.jpg",
+        "images": [
+            "product-73-1.jpg",
+            "product-73-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 146
+    },
+    {
+        "title": "Product 74",
+        "description": "This is a long dummy description for product 74 with enough characters to pass validation.",
+        "quantity": 84,
+        "sold": 14,
+        "price": 174,
+        "priceAfterDiscount": 164,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-74-cover.jpg",
+        "images": [
+            "product-74-1.jpg",
+            "product-74-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 148
+    },
+    {
+        "title": "Product 75",
+        "description": "This is a long dummy description for product 75 with enough characters to pass validation.",
+        "quantity": 85,
+        "sold": 15,
+        "price": 175,
+        "priceAfterDiscount": 165,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-75-cover.jpg",
+        "images": [
+            "product-75-1.jpg",
+            "product-75-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 150
+    },
+    {
+        "title": "Product 76",
+        "description": "This is a long dummy description for product 76 with enough characters to pass validation.",
+        "quantity": 86,
+        "sold": 16,
+        "price": 176,
+        "priceAfterDiscount": 166,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-76-cover.jpg",
+        "images": [
+            "product-76-1.jpg",
+            "product-76-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 152
+    },
+    {
+        "title": "Product 77",
+        "description": "This is a long dummy description for product 77 with enough characters to pass validation.",
+        "quantity": 87,
+        "sold": 17,
+        "price": 177,
+        "priceAfterDiscount": 167,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-77-cover.jpg",
+        "images": [
+            "product-77-1.jpg",
+            "product-77-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 154
+    },
+    {
+        "title": "Product 78",
+        "description": "This is a long dummy description for product 78 with enough characters to pass validation.",
+        "quantity": 88,
+        "sold": 18,
+        "price": 178,
+        "priceAfterDiscount": 168,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-78-cover.jpg",
+        "images": [
+            "product-78-1.jpg",
+            "product-78-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 156
+    },
+    {
+        "title": "Product 79",
+        "description": "This is a long dummy description for product 79 with enough characters to pass validation.",
+        "quantity": 89,
+        "sold": 19,
+        "price": 179,
+        "priceAfterDiscount": 169,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-79-cover.jpg",
+        "images": [
+            "product-79-1.jpg",
+            "product-79-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 158
+    },
+    {
+        "title": "Product 80",
+        "description": "This is a long dummy description for product 80 with enough characters to pass validation.",
+        "quantity": 90,
+        "sold": 0,
+        "price": 180,
+        "priceAfterDiscount": 170,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-80-cover.jpg",
+        "images": [
+            "product-80-1.jpg",
+            "product-80-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 160
+    },
+    {
+        "title": "Product 81",
+        "description": "This is a long dummy description for product 81 with enough characters to pass validation.",
+        "quantity": 91,
+        "sold": 1,
+        "price": 181,
+        "priceAfterDiscount": 171,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-81-cover.jpg",
+        "images": [
+            "product-81-1.jpg",
+            "product-81-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 162
+    },
+    {
+        "title": "Product 82",
+        "description": "This is a long dummy description for product 82 with enough characters to pass validation.",
+        "quantity": 92,
+        "sold": 2,
+        "price": 182,
+        "priceAfterDiscount": 172,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-82-cover.jpg",
+        "images": [
+            "product-82-1.jpg",
+            "product-82-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 164
+    },
+    {
+        "title": "Product 83",
+        "description": "This is a long dummy description for product 83 with enough characters to pass validation.",
+        "quantity": 93,
+        "sold": 3,
+        "price": 183,
+        "priceAfterDiscount": 173,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-83-cover.jpg",
+        "images": [
+            "product-83-1.jpg",
+            "product-83-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 166
+    },
+    {
+        "title": "Product 84",
+        "description": "This is a long dummy description for product 84 with enough characters to pass validation.",
+        "quantity": 94,
+        "sold": 4,
+        "price": 184,
+        "priceAfterDiscount": 174,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-84-cover.jpg",
+        "images": [
+            "product-84-1.jpg",
+            "product-84-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 168
+    },
+    {
+        "title": "Product 85",
+        "description": "This is a long dummy description for product 85 with enough characters to pass validation.",
+        "quantity": 95,
+        "sold": 5,
+        "price": 185,
+        "priceAfterDiscount": 175,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-85-cover.jpg",
+        "images": [
+            "product-85-1.jpg",
+            "product-85-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 170
+    },
+    {
+        "title": "Product 86",
+        "description": "This is a long dummy description for product 86 with enough characters to pass validation.",
+        "quantity": 96,
+        "sold": 6,
+        "price": 186,
+        "priceAfterDiscount": 176,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-86-cover.jpg",
+        "images": [
+            "product-86-1.jpg",
+            "product-86-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 172
+    },
+    {
+        "title": "Product 87",
+        "description": "This is a long dummy description for product 87 with enough characters to pass validation.",
+        "quantity": 97,
+        "sold": 7,
+        "price": 187,
+        "priceAfterDiscount": 177,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-87-cover.jpg",
+        "images": [
+            "product-87-1.jpg",
+            "product-87-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 174
+    },
+    {
+        "title": "Product 88",
+        "description": "This is a long dummy description for product 88 with enough characters to pass validation.",
+        "quantity": 98,
+        "sold": 8,
+        "price": 188,
+        "priceAfterDiscount": 178,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-88-cover.jpg",
+        "images": [
+            "product-88-1.jpg",
+            "product-88-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 176
+    },
+    {
+        "title": "Product 89",
+        "description": "This is a long dummy description for product 89 with enough characters to pass validation.",
+        "quantity": 99,
+        "sold": 9,
+        "price": 189,
+        "priceAfterDiscount": 179,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-89-cover.jpg",
+        "images": [
+            "product-89-1.jpg",
+            "product-89-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 178
+    },
+    {
+        "title": "Product 90",
+        "description": "This is a long dummy description for product 90 with enough characters to pass validation.",
+        "quantity": 100,
+        "sold": 10,
+        "price": 190,
+        "priceAfterDiscount": 180,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-90-cover.jpg",
+        "images": [
+            "product-90-1.jpg",
+            "product-90-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 180
+    },
+    {
+        "title": "Product 91",
+        "description": "This is a long dummy description for product 91 with enough characters to pass validation.",
+        "quantity": 101,
+        "sold": 11,
+        "price": 191,
+        "priceAfterDiscount": 181,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-91-cover.jpg",
+        "images": [
+            "product-91-1.jpg",
+            "product-91-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 182
+    },
+    {
+        "title": "Product 92",
+        "description": "This is a long dummy description for product 92 with enough characters to pass validation.",
+        "quantity": 102,
+        "sold": 12,
+        "price": 192,
+        "priceAfterDiscount": 182,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-92-cover.jpg",
+        "images": [
+            "product-92-1.jpg",
+            "product-92-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 184
+    },
+    {
+        "title": "Product 93",
+        "description": "This is a long dummy description for product 93 with enough characters to pass validation.",
+        "quantity": 103,
+        "sold": 13,
+        "price": 193,
+        "priceAfterDiscount": 183,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-93-cover.jpg",
+        "images": [
+            "product-93-1.jpg",
+            "product-93-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 186
+    },
+    {
+        "title": "Product 94",
+        "description": "This is a long dummy description for product 94 with enough characters to pass validation.",
+        "quantity": 104,
+        "sold": 14,
+        "price": 194,
+        "priceAfterDiscount": 184,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-94-cover.jpg",
+        "images": [
+            "product-94-1.jpg",
+            "product-94-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 188
+    },
+    {
+        "title": "Product 95",
+        "description": "This is a long dummy description for product 95 with enough characters to pass validation.",
+        "quantity": 105,
+        "sold": 15,
+        "price": 195,
+        "priceAfterDiscount": 185,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-95-cover.jpg",
+        "images": [
+            "product-95-1.jpg",
+            "product-95-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 190
+    },
+    {
+        "title": "Product 96",
+        "description": "This is a long dummy description for product 96 with enough characters to pass validation.",
+        "quantity": 106,
+        "sold": 16,
+        "price": 196,
+        "priceAfterDiscount": 186,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-96-cover.jpg",
+        "images": [
+            "product-96-1.jpg",
+            "product-96-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 192
+    },
+    {
+        "title": "Product 97",
+        "description": "This is a long dummy description for product 97 with enough characters to pass validation.",
+        "quantity": 107,
+        "sold": 17,
+        "price": 197,
+        "priceAfterDiscount": 187,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-97-cover.jpg",
+        "images": [
+            "product-97-1.jpg",
+            "product-97-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 194
+    },
+    {
+        "title": "Product 98",
+        "description": "This is a long dummy description for product 98 with enough characters to pass validation.",
+        "quantity": 108,
+        "sold": 18,
+        "price": 198,
+        "priceAfterDiscount": 188,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-98-cover.jpg",
+        "images": [
+            "product-98-1.jpg",
+            "product-98-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 196
+    },
+    {
+        "title": "Product 99",
+        "description": "This is a long dummy description for product 99 with enough characters to pass validation.",
+        "quantity": 109,
+        "sold": 19,
+        "price": 199,
+        "priceAfterDiscount": 189,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-99-cover.jpg",
+        "images": [
+            "product-99-1.jpg",
+            "product-99-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 198
+    },
+    {
+        "title": "Product 100",
+        "description": "This is a long dummy description for product 100 with enough characters to pass validation.",
+        "quantity": 110,
+        "sold": 0,
+        "price": 200,
+        "priceAfterDiscount": 190,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-100-cover.jpg",
+        "images": [
+            "product-100-1.jpg",
+            "product-100-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 200
+    },
+    {
+        "title": "Product 101",
+        "description": "This is a long dummy description for product 101 with enough characters to pass validation.",
+        "quantity": 111,
+        "sold": 1,
+        "price": 201,
+        "priceAfterDiscount": 191,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-101-cover.jpg",
+        "images": [
+            "product-101-1.jpg",
+            "product-101-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 202
+    },
+    {
+        "title": "Product 102",
+        "description": "This is a long dummy description for product 102 with enough characters to pass validation.",
+        "quantity": 112,
+        "sold": 2,
+        "price": 202,
+        "priceAfterDiscount": 192,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-102-cover.jpg",
+        "images": [
+            "product-102-1.jpg",
+            "product-102-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 204
+    },
+    {
+        "title": "Product 103",
+        "description": "This is a long dummy description for product 103 with enough characters to pass validation.",
+        "quantity": 113,
+        "sold": 3,
+        "price": 203,
+        "priceAfterDiscount": 193,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-103-cover.jpg",
+        "images": [
+            "product-103-1.jpg",
+            "product-103-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 206
+    },
+    {
+        "title": "Product 104",
+        "description": "This is a long dummy description for product 104 with enough characters to pass validation.",
+        "quantity": 114,
+        "sold": 4,
+        "price": 204,
+        "priceAfterDiscount": 194,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-104-cover.jpg",
+        "images": [
+            "product-104-1.jpg",
+            "product-104-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 208
+    },
+    {
+        "title": "Product 105",
+        "description": "This is a long dummy description for product 105 with enough characters to pass validation.",
+        "quantity": 115,
+        "sold": 5,
+        "price": 205,
+        "priceAfterDiscount": 195,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-105-cover.jpg",
+        "images": [
+            "product-105-1.jpg",
+            "product-105-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 210
+    },
+    {
+        "title": "Product 106",
+        "description": "This is a long dummy description for product 106 with enough characters to pass validation.",
+        "quantity": 116,
+        "sold": 6,
+        "price": 206,
+        "priceAfterDiscount": 196,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-106-cover.jpg",
+        "images": [
+            "product-106-1.jpg",
+            "product-106-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 212
+    },
+    {
+        "title": "Product 107",
+        "description": "This is a long dummy description for product 107 with enough characters to pass validation.",
+        "quantity": 117,
+        "sold": 7,
+        "price": 207,
+        "priceAfterDiscount": 197,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-107-cover.jpg",
+        "images": [
+            "product-107-1.jpg",
+            "product-107-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 214
+    },
+    {
+        "title": "Product 108",
+        "description": "This is a long dummy description for product 108 with enough characters to pass validation.",
+        "quantity": 118,
+        "sold": 8,
+        "price": 208,
+        "priceAfterDiscount": 198,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-108-cover.jpg",
+        "images": [
+            "product-108-1.jpg",
+            "product-108-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 216
+    },
+    {
+        "title": "Product 109",
+        "description": "This is a long dummy description for product 109 with enough characters to pass validation.",
+        "quantity": 119,
+        "sold": 9,
+        "price": 209,
+        "priceAfterDiscount": 199,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-109-cover.jpg",
+        "images": [
+            "product-109-1.jpg",
+            "product-109-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 218
+    },
+    {
+        "title": "Product 110",
+        "description": "This is a long dummy description for product 110 with enough characters to pass validation.",
+        "quantity": 120,
+        "sold": 10,
+        "price": 210,
+        "priceAfterDiscount": 200,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-110-cover.jpg",
+        "images": [
+            "product-110-1.jpg",
+            "product-110-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 220
+    },
+    {
+        "title": "Product 111",
+        "description": "This is a long dummy description for product 111 with enough characters to pass validation.",
+        "quantity": 121,
+        "sold": 11,
+        "price": 211,
+        "priceAfterDiscount": 201,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-111-cover.jpg",
+        "images": [
+            "product-111-1.jpg",
+            "product-111-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 222
+    },
+    {
+        "title": "Product 112",
+        "description": "This is a long dummy description for product 112 with enough characters to pass validation.",
+        "quantity": 122,
+        "sold": 12,
+        "price": 212,
+        "priceAfterDiscount": 202,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-112-cover.jpg",
+        "images": [
+            "product-112-1.jpg",
+            "product-112-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 224
+    },
+    {
+        "title": "Product 113",
+        "description": "This is a long dummy description for product 113 with enough characters to pass validation.",
+        "quantity": 123,
+        "sold": 13,
+        "price": 213,
+        "priceAfterDiscount": 203,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-113-cover.jpg",
+        "images": [
+            "product-113-1.jpg",
+            "product-113-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 226
+    },
+    {
+        "title": "Product 114",
+        "description": "This is a long dummy description for product 114 with enough characters to pass validation.",
+        "quantity": 124,
+        "sold": 14,
+        "price": 214,
+        "priceAfterDiscount": 204,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-114-cover.jpg",
+        "images": [
+            "product-114-1.jpg",
+            "product-114-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 228
+    },
+    {
+        "title": "Product 115",
+        "description": "This is a long dummy description for product 115 with enough characters to pass validation.",
+        "quantity": 125,
+        "sold": 15,
+        "price": 215,
+        "priceAfterDiscount": 205,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-115-cover.jpg",
+        "images": [
+            "product-115-1.jpg",
+            "product-115-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 230
+    },
+    {
+        "title": "Product 116",
+        "description": "This is a long dummy description for product 116 with enough characters to pass validation.",
+        "quantity": 126,
+        "sold": 16,
+        "price": 216,
+        "priceAfterDiscount": 206,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-116-cover.jpg",
+        "images": [
+            "product-116-1.jpg",
+            "product-116-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 232
+    },
+    {
+        "title": "Product 117",
+        "description": "This is a long dummy description for product 117 with enough characters to pass validation.",
+        "quantity": 127,
+        "sold": 17,
+        "price": 217,
+        "priceAfterDiscount": 207,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-117-cover.jpg",
+        "images": [
+            "product-117-1.jpg",
+            "product-117-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 234
+    },
+    {
+        "title": "Product 118",
+        "description": "This is a long dummy description for product 118 with enough characters to pass validation.",
+        "quantity": 128,
+        "sold": 18,
+        "price": 218,
+        "priceAfterDiscount": 208,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-118-cover.jpg",
+        "images": [
+            "product-118-1.jpg",
+            "product-118-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 236
+    },
+    {
+        "title": "Product 119",
+        "description": "This is a long dummy description for product 119 with enough characters to pass validation.",
+        "quantity": 129,
+        "sold": 19,
+        "price": 219,
+        "priceAfterDiscount": 209,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-119-cover.jpg",
+        "images": [
+            "product-119-1.jpg",
+            "product-119-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 238
+    },
+    {
+        "title": "Product 120",
+        "description": "This is a long dummy description for product 120 with enough characters to pass validation.",
+        "quantity": 130,
+        "sold": 0,
+        "price": 220,
+        "priceAfterDiscount": 210,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-120-cover.jpg",
+        "images": [
+            "product-120-1.jpg",
+            "product-120-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 240
+    },
+    {
+        "title": "Product 121",
+        "description": "This is a long dummy description for product 121 with enough characters to pass validation.",
+        "quantity": 131,
+        "sold": 1,
+        "price": 221,
+        "priceAfterDiscount": 211,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-121-cover.jpg",
+        "images": [
+            "product-121-1.jpg",
+            "product-121-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 242
+    },
+    {
+        "title": "Product 122",
+        "description": "This is a long dummy description for product 122 with enough characters to pass validation.",
+        "quantity": 132,
+        "sold": 2,
+        "price": 222,
+        "priceAfterDiscount": 212,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-122-cover.jpg",
+        "images": [
+            "product-122-1.jpg",
+            "product-122-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 244
+    },
+    {
+        "title": "Product 123",
+        "description": "This is a long dummy description for product 123 with enough characters to pass validation.",
+        "quantity": 133,
+        "sold": 3,
+        "price": 223,
+        "priceAfterDiscount": 213,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-123-cover.jpg",
+        "images": [
+            "product-123-1.jpg",
+            "product-123-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 246
+    },
+    {
+        "title": "Product 124",
+        "description": "This is a long dummy description for product 124 with enough characters to pass validation.",
+        "quantity": 134,
+        "sold": 4,
+        "price": 224,
+        "priceAfterDiscount": 214,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-124-cover.jpg",
+        "images": [
+            "product-124-1.jpg",
+            "product-124-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 248
+    },
+    {
+        "title": "Product 125",
+        "description": "This is a long dummy description for product 125 with enough characters to pass validation.",
+        "quantity": 135,
+        "sold": 5,
+        "price": 225,
+        "priceAfterDiscount": 215,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-125-cover.jpg",
+        "images": [
+            "product-125-1.jpg",
+            "product-125-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 250
+    },
+    {
+        "title": "Product 126",
+        "description": "This is a long dummy description for product 126 with enough characters to pass validation.",
+        "quantity": 136,
+        "sold": 6,
+        "price": 226,
+        "priceAfterDiscount": 216,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-126-cover.jpg",
+        "images": [
+            "product-126-1.jpg",
+            "product-126-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 252
+    },
+    {
+        "title": "Product 127",
+        "description": "This is a long dummy description for product 127 with enough characters to pass validation.",
+        "quantity": 137,
+        "sold": 7,
+        "price": 227,
+        "priceAfterDiscount": 217,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-127-cover.jpg",
+        "images": [
+            "product-127-1.jpg",
+            "product-127-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 254
+    },
+    {
+        "title": "Product 128",
+        "description": "This is a long dummy description for product 128 with enough characters to pass validation.",
+        "quantity": 138,
+        "sold": 8,
+        "price": 228,
+        "priceAfterDiscount": 218,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-128-cover.jpg",
+        "images": [
+            "product-128-1.jpg",
+            "product-128-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 256
+    },
+    {
+        "title": "Product 129",
+        "description": "This is a long dummy description for product 129 with enough characters to pass validation.",
+        "quantity": 139,
+        "sold": 9,
+        "price": 229,
+        "priceAfterDiscount": 219,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-129-cover.jpg",
+        "images": [
+            "product-129-1.jpg",
+            "product-129-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 258
+    },
+    {
+        "title": "Product 130",
+        "description": "This is a long dummy description for product 130 with enough characters to pass validation.",
+        "quantity": 140,
+        "sold": 10,
+        "price": 230,
+        "priceAfterDiscount": 220,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-130-cover.jpg",
+        "images": [
+            "product-130-1.jpg",
+            "product-130-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 260
+    },
+    {
+        "title": "Product 131",
+        "description": "This is a long dummy description for product 131 with enough characters to pass validation.",
+        "quantity": 141,
+        "sold": 11,
+        "price": 231,
+        "priceAfterDiscount": 221,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-131-cover.jpg",
+        "images": [
+            "product-131-1.jpg",
+            "product-131-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 262
+    },
+    {
+        "title": "Product 132",
+        "description": "This is a long dummy description for product 132 with enough characters to pass validation.",
+        "quantity": 142,
+        "sold": 12,
+        "price": 232,
+        "priceAfterDiscount": 222,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-132-cover.jpg",
+        "images": [
+            "product-132-1.jpg",
+            "product-132-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 264
+    },
+    {
+        "title": "Product 133",
+        "description": "This is a long dummy description for product 133 with enough characters to pass validation.",
+        "quantity": 143,
+        "sold": 13,
+        "price": 233,
+        "priceAfterDiscount": 223,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-133-cover.jpg",
+        "images": [
+            "product-133-1.jpg",
+            "product-133-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 266
+    },
+    {
+        "title": "Product 134",
+        "description": "This is a long dummy description for product 134 with enough characters to pass validation.",
+        "quantity": 144,
+        "sold": 14,
+        "price": 234,
+        "priceAfterDiscount": 224,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-134-cover.jpg",
+        "images": [
+            "product-134-1.jpg",
+            "product-134-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 268
+    },
+    {
+        "title": "Product 135",
+        "description": "This is a long dummy description for product 135 with enough characters to pass validation.",
+        "quantity": 145,
+        "sold": 15,
+        "price": 235,
+        "priceAfterDiscount": 225,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-135-cover.jpg",
+        "images": [
+            "product-135-1.jpg",
+            "product-135-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 270
+    },
+    {
+        "title": "Product 136",
+        "description": "This is a long dummy description for product 136 with enough characters to pass validation.",
+        "quantity": 146,
+        "sold": 16,
+        "price": 236,
+        "priceAfterDiscount": 226,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-136-cover.jpg",
+        "images": [
+            "product-136-1.jpg",
+            "product-136-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 272
+    },
+    {
+        "title": "Product 137",
+        "description": "This is a long dummy description for product 137 with enough characters to pass validation.",
+        "quantity": 147,
+        "sold": 17,
+        "price": 237,
+        "priceAfterDiscount": 227,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-137-cover.jpg",
+        "images": [
+            "product-137-1.jpg",
+            "product-137-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 274
+    },
+    {
+        "title": "Product 138",
+        "description": "This is a long dummy description for product 138 with enough characters to pass validation.",
+        "quantity": 148,
+        "sold": 18,
+        "price": 238,
+        "priceAfterDiscount": 228,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-138-cover.jpg",
+        "images": [
+            "product-138-1.jpg",
+            "product-138-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 276
+    },
+    {
+        "title": "Product 139",
+        "description": "This is a long dummy description for product 139 with enough characters to pass validation.",
+        "quantity": 149,
+        "sold": 19,
+        "price": 239,
+        "priceAfterDiscount": 229,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-139-cover.jpg",
+        "images": [
+            "product-139-1.jpg",
+            "product-139-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 278
+    },
+    {
+        "title": "Product 140",
+        "description": "This is a long dummy description for product 140 with enough characters to pass validation.",
+        "quantity": 150,
+        "sold": 0,
+        "price": 240,
+        "priceAfterDiscount": 230,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-140-cover.jpg",
+        "images": [
+            "product-140-1.jpg",
+            "product-140-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 280
+    },
+    {
+        "title": "Product 141",
+        "description": "This is a long dummy description for product 141 with enough characters to pass validation.",
+        "quantity": 151,
+        "sold": 1,
+        "price": 241,
+        "priceAfterDiscount": 231,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-141-cover.jpg",
+        "images": [
+            "product-141-1.jpg",
+            "product-141-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 282
+    },
+    {
+        "title": "Product 142",
+        "description": "This is a long dummy description for product 142 with enough characters to pass validation.",
+        "quantity": 152,
+        "sold": 2,
+        "price": 242,
+        "priceAfterDiscount": 232,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-142-cover.jpg",
+        "images": [
+            "product-142-1.jpg",
+            "product-142-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 284
+    },
+    {
+        "title": "Product 143",
+        "description": "This is a long dummy description for product 143 with enough characters to pass validation.",
+        "quantity": 153,
+        "sold": 3,
+        "price": 243,
+        "priceAfterDiscount": 233,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-143-cover.jpg",
+        "images": [
+            "product-143-1.jpg",
+            "product-143-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 286
+    },
+    {
+        "title": "Product 144",
+        "description": "This is a long dummy description for product 144 with enough characters to pass validation.",
+        "quantity": 154,
+        "sold": 4,
+        "price": 244,
+        "priceAfterDiscount": 234,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-144-cover.jpg",
+        "images": [
+            "product-144-1.jpg",
+            "product-144-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 288
+    },
+    {
+        "title": "Product 145",
+        "description": "This is a long dummy description for product 145 with enough characters to pass validation.",
+        "quantity": 155,
+        "sold": 5,
+        "price": 245,
+        "priceAfterDiscount": 235,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-145-cover.jpg",
+        "images": [
+            "product-145-1.jpg",
+            "product-145-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 290
+    },
+    {
+        "title": "Product 146",
+        "description": "This is a long dummy description for product 146 with enough characters to pass validation.",
+        "quantity": 156,
+        "sold": 6,
+        "price": 246,
+        "priceAfterDiscount": 236,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-146-cover.jpg",
+        "images": [
+            "product-146-1.jpg",
+            "product-146-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 292
+    },
+    {
+        "title": "Product 147",
+        "description": "This is a long dummy description for product 147 with enough characters to pass validation.",
+        "quantity": 157,
+        "sold": 7,
+        "price": 247,
+        "priceAfterDiscount": 237,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-147-cover.jpg",
+        "images": [
+            "product-147-1.jpg",
+            "product-147-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 294
+    },
+    {
+        "title": "Product 148",
+        "description": "This is a long dummy description for product 148 with enough characters to pass validation.",
+        "quantity": 158,
+        "sold": 8,
+        "price": 248,
+        "priceAfterDiscount": 238,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-148-cover.jpg",
+        "images": [
+            "product-148-1.jpg",
+            "product-148-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 296
+    },
+    {
+        "title": "Product 149",
+        "description": "This is a long dummy description for product 149 with enough characters to pass validation.",
+        "quantity": 159,
+        "sold": 9,
+        "price": 249,
+        "priceAfterDiscount": 239,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-149-cover.jpg",
+        "images": [
+            "product-149-1.jpg",
+            "product-149-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 298
+    },
+    {
+        "title": "Product 150",
+        "description": "This is a long dummy description for product 150 with enough characters to pass validation.",
+        "quantity": 160,
+        "sold": 10,
+        "price": 250,
+        "priceAfterDiscount": 240,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-150-cover.jpg",
+        "images": [
+            "product-150-1.jpg",
+            "product-150-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 300
+    },
+    {
+        "title": "Product 151",
+        "description": "This is a long dummy description for product 151 with enough characters to pass validation.",
+        "quantity": 161,
+        "sold": 11,
+        "price": 251,
+        "priceAfterDiscount": 241,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-151-cover.jpg",
+        "images": [
+            "product-151-1.jpg",
+            "product-151-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 302
+    },
+    {
+        "title": "Product 152",
+        "description": "This is a long dummy description for product 152 with enough characters to pass validation.",
+        "quantity": 162,
+        "sold": 12,
+        "price": 252,
+        "priceAfterDiscount": 242,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-152-cover.jpg",
+        "images": [
+            "product-152-1.jpg",
+            "product-152-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 304
+    },
+    {
+        "title": "Product 153",
+        "description": "This is a long dummy description for product 153 with enough characters to pass validation.",
+        "quantity": 163,
+        "sold": 13,
+        "price": 253,
+        "priceAfterDiscount": 243,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-153-cover.jpg",
+        "images": [
+            "product-153-1.jpg",
+            "product-153-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 306
+    },
+    {
+        "title": "Product 154",
+        "description": "This is a long dummy description for product 154 with enough characters to pass validation.",
+        "quantity": 164,
+        "sold": 14,
+        "price": 254,
+        "priceAfterDiscount": 244,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-154-cover.jpg",
+        "images": [
+            "product-154-1.jpg",
+            "product-154-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 308
+    },
+    {
+        "title": "Product 155",
+        "description": "This is a long dummy description for product 155 with enough characters to pass validation.",
+        "quantity": 165,
+        "sold": 15,
+        "price": 255,
+        "priceAfterDiscount": 245,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-155-cover.jpg",
+        "images": [
+            "product-155-1.jpg",
+            "product-155-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 310
+    },
+    {
+        "title": "Product 156",
+        "description": "This is a long dummy description for product 156 with enough characters to pass validation.",
+        "quantity": 166,
+        "sold": 16,
+        "price": 256,
+        "priceAfterDiscount": 246,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-156-cover.jpg",
+        "images": [
+            "product-156-1.jpg",
+            "product-156-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 312
+    },
+    {
+        "title": "Product 157",
+        "description": "This is a long dummy description for product 157 with enough characters to pass validation.",
+        "quantity": 167,
+        "sold": 17,
+        "price": 257,
+        "priceAfterDiscount": 247,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-157-cover.jpg",
+        "images": [
+            "product-157-1.jpg",
+            "product-157-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 314
+    },
+    {
+        "title": "Product 158",
+        "description": "This is a long dummy description for product 158 with enough characters to pass validation.",
+        "quantity": 168,
+        "sold": 18,
+        "price": 258,
+        "priceAfterDiscount": 248,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-158-cover.jpg",
+        "images": [
+            "product-158-1.jpg",
+            "product-158-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 316
+    },
+    {
+        "title": "Product 159",
+        "description": "This is a long dummy description for product 159 with enough characters to pass validation.",
+        "quantity": 169,
+        "sold": 19,
+        "price": 259,
+        "priceAfterDiscount": 249,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-159-cover.jpg",
+        "images": [
+            "product-159-1.jpg",
+            "product-159-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 318
+    },
+    {
+        "title": "Product 160",
+        "description": "This is a long dummy description for product 160 with enough characters to pass validation.",
+        "quantity": 170,
+        "sold": 0,
+        "price": 260,
+        "priceAfterDiscount": 250,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-160-cover.jpg",
+        "images": [
+            "product-160-1.jpg",
+            "product-160-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 320
+    },
+    {
+        "title": "Product 161",
+        "description": "This is a long dummy description for product 161 with enough characters to pass validation.",
+        "quantity": 171,
+        "sold": 1,
+        "price": 261,
+        "priceAfterDiscount": 251,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-161-cover.jpg",
+        "images": [
+            "product-161-1.jpg",
+            "product-161-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 322
+    },
+    {
+        "title": "Product 162",
+        "description": "This is a long dummy description for product 162 with enough characters to pass validation.",
+        "quantity": 172,
+        "sold": 2,
+        "price": 262,
+        "priceAfterDiscount": 252,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-162-cover.jpg",
+        "images": [
+            "product-162-1.jpg",
+            "product-162-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 324
+    },
+    {
+        "title": "Product 163",
+        "description": "This is a long dummy description for product 163 with enough characters to pass validation.",
+        "quantity": 173,
+        "sold": 3,
+        "price": 263,
+        "priceAfterDiscount": 253,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-163-cover.jpg",
+        "images": [
+            "product-163-1.jpg",
+            "product-163-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 326
+    },
+    {
+        "title": "Product 164",
+        "description": "This is a long dummy description for product 164 with enough characters to pass validation.",
+        "quantity": 174,
+        "sold": 4,
+        "price": 264,
+        "priceAfterDiscount": 254,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-164-cover.jpg",
+        "images": [
+            "product-164-1.jpg",
+            "product-164-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 328
+    },
+    {
+        "title": "Product 165",
+        "description": "This is a long dummy description for product 165 with enough characters to pass validation.",
+        "quantity": 175,
+        "sold": 5,
+        "price": 265,
+        "priceAfterDiscount": 255,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-165-cover.jpg",
+        "images": [
+            "product-165-1.jpg",
+            "product-165-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 330
+    },
+    {
+        "title": "Product 166",
+        "description": "This is a long dummy description for product 166 with enough characters to pass validation.",
+        "quantity": 176,
+        "sold": 6,
+        "price": 266,
+        "priceAfterDiscount": 256,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-166-cover.jpg",
+        "images": [
+            "product-166-1.jpg",
+            "product-166-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 332
+    },
+    {
+        "title": "Product 167",
+        "description": "This is a long dummy description for product 167 with enough characters to pass validation.",
+        "quantity": 177,
+        "sold": 7,
+        "price": 267,
+        "priceAfterDiscount": 257,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-167-cover.jpg",
+        "images": [
+            "product-167-1.jpg",
+            "product-167-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 334
+    },
+    {
+        "title": "Product 168",
+        "description": "This is a long dummy description for product 168 with enough characters to pass validation.",
+        "quantity": 178,
+        "sold": 8,
+        "price": 268,
+        "priceAfterDiscount": 258,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-168-cover.jpg",
+        "images": [
+            "product-168-1.jpg",
+            "product-168-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 336
+    },
+    {
+        "title": "Product 169",
+        "description": "This is a long dummy description for product 169 with enough characters to pass validation.",
+        "quantity": 179,
+        "sold": 9,
+        "price": 269,
+        "priceAfterDiscount": 259,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-169-cover.jpg",
+        "images": [
+            "product-169-1.jpg",
+            "product-169-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 338
+    },
+    {
+        "title": "Product 170",
+        "description": "This is a long dummy description for product 170 with enough characters to pass validation.",
+        "quantity": 180,
+        "sold": 10,
+        "price": 270,
+        "priceAfterDiscount": 260,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-170-cover.jpg",
+        "images": [
+            "product-170-1.jpg",
+            "product-170-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 340
+    },
+    {
+        "title": "Product 171",
+        "description": "This is a long dummy description for product 171 with enough characters to pass validation.",
+        "quantity": 181,
+        "sold": 11,
+        "price": 271,
+        "priceAfterDiscount": 261,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-171-cover.jpg",
+        "images": [
+            "product-171-1.jpg",
+            "product-171-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 342
+    },
+    {
+        "title": "Product 172",
+        "description": "This is a long dummy description for product 172 with enough characters to pass validation.",
+        "quantity": 182,
+        "sold": 12,
+        "price": 272,
+        "priceAfterDiscount": 262,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-172-cover.jpg",
+        "images": [
+            "product-172-1.jpg",
+            "product-172-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 344
+    },
+    {
+        "title": "Product 173",
+        "description": "This is a long dummy description for product 173 with enough characters to pass validation.",
+        "quantity": 183,
+        "sold": 13,
+        "price": 273,
+        "priceAfterDiscount": 263,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-173-cover.jpg",
+        "images": [
+            "product-173-1.jpg",
+            "product-173-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 346
+    },
+    {
+        "title": "Product 174",
+        "description": "This is a long dummy description for product 174 with enough characters to pass validation.",
+        "quantity": 184,
+        "sold": 14,
+        "price": 274,
+        "priceAfterDiscount": 264,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-174-cover.jpg",
+        "images": [
+            "product-174-1.jpg",
+            "product-174-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 348
+    },
+    {
+        "title": "Product 175",
+        "description": "This is a long dummy description for product 175 with enough characters to pass validation.",
+        "quantity": 185,
+        "sold": 15,
+        "price": 275,
+        "priceAfterDiscount": 265,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-175-cover.jpg",
+        "images": [
+            "product-175-1.jpg",
+            "product-175-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 350
+    },
+    {
+        "title": "Product 176",
+        "description": "This is a long dummy description for product 176 with enough characters to pass validation.",
+        "quantity": 186,
+        "sold": 16,
+        "price": 276,
+        "priceAfterDiscount": 266,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-176-cover.jpg",
+        "images": [
+            "product-176-1.jpg",
+            "product-176-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 352
+    },
+    {
+        "title": "Product 177",
+        "description": "This is a long dummy description for product 177 with enough characters to pass validation.",
+        "quantity": 187,
+        "sold": 17,
+        "price": 277,
+        "priceAfterDiscount": 267,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-177-cover.jpg",
+        "images": [
+            "product-177-1.jpg",
+            "product-177-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 354
+    },
+    {
+        "title": "Product 178",
+        "description": "This is a long dummy description for product 178 with enough characters to pass validation.",
+        "quantity": 188,
+        "sold": 18,
+        "price": 278,
+        "priceAfterDiscount": 268,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-178-cover.jpg",
+        "images": [
+            "product-178-1.jpg",
+            "product-178-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 356
+    },
+    {
+        "title": "Product 179",
+        "description": "This is a long dummy description for product 179 with enough characters to pass validation.",
+        "quantity": 189,
+        "sold": 19,
+        "price": 279,
+        "priceAfterDiscount": 269,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-179-cover.jpg",
+        "images": [
+            "product-179-1.jpg",
+            "product-179-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 358
+    },
+    {
+        "title": "Product 180",
+        "description": "This is a long dummy description for product 180 with enough characters to pass validation.",
+        "quantity": 190,
+        "sold": 0,
+        "price": 280,
+        "priceAfterDiscount": 270,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-180-cover.jpg",
+        "images": [
+            "product-180-1.jpg",
+            "product-180-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 360
+    },
+    {
+        "title": "Product 181",
+        "description": "This is a long dummy description for product 181 with enough characters to pass validation.",
+        "quantity": 191,
+        "sold": 1,
+        "price": 281,
+        "priceAfterDiscount": 271,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-181-cover.jpg",
+        "images": [
+            "product-181-1.jpg",
+            "product-181-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 362
+    },
+    {
+        "title": "Product 182",
+        "description": "This is a long dummy description for product 182 with enough characters to pass validation.",
+        "quantity": 192,
+        "sold": 2,
+        "price": 282,
+        "priceAfterDiscount": 272,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-182-cover.jpg",
+        "images": [
+            "product-182-1.jpg",
+            "product-182-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 364
+    },
+    {
+        "title": "Product 183",
+        "description": "This is a long dummy description for product 183 with enough characters to pass validation.",
+        "quantity": 193,
+        "sold": 3,
+        "price": 283,
+        "priceAfterDiscount": 273,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-183-cover.jpg",
+        "images": [
+            "product-183-1.jpg",
+            "product-183-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 366
+    },
+    {
+        "title": "Product 184",
+        "description": "This is a long dummy description for product 184 with enough characters to pass validation.",
+        "quantity": 194,
+        "sold": 4,
+        "price": 284,
+        "priceAfterDiscount": 274,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-184-cover.jpg",
+        "images": [
+            "product-184-1.jpg",
+            "product-184-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 368
+    },
+    {
+        "title": "Product 185",
+        "description": "This is a long dummy description for product 185 with enough characters to pass validation.",
+        "quantity": 195,
+        "sold": 5,
+        "price": 285,
+        "priceAfterDiscount": 275,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-185-cover.jpg",
+        "images": [
+            "product-185-1.jpg",
+            "product-185-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 370
+    },
+    {
+        "title": "Product 186",
+        "description": "This is a long dummy description for product 186 with enough characters to pass validation.",
+        "quantity": 196,
+        "sold": 6,
+        "price": 286,
+        "priceAfterDiscount": 276,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-186-cover.jpg",
+        "images": [
+            "product-186-1.jpg",
+            "product-186-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.1,
+        "ratingsQuantity": 372
+    },
+    {
+        "title": "Product 187",
+        "description": "This is a long dummy description for product 187 with enough characters to pass validation.",
+        "quantity": 197,
+        "sold": 7,
+        "price": 287,
+        "priceAfterDiscount": 277,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-187-cover.jpg",
+        "images": [
+            "product-187-1.jpg",
+            "product-187-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.2,
+        "ratingsQuantity": 374
+    },
+    {
+        "title": "Product 188",
+        "description": "This is a long dummy description for product 188 with enough characters to pass validation.",
+        "quantity": 198,
+        "sold": 8,
+        "price": 288,
+        "priceAfterDiscount": 278,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-188-cover.jpg",
+        "images": [
+            "product-188-1.jpg",
+            "product-188-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.3,
+        "ratingsQuantity": 376
+    },
+    {
+        "title": "Product 189",
+        "description": "This is a long dummy description for product 189 with enough characters to pass validation.",
+        "quantity": 199,
+        "sold": 9,
+        "price": 289,
+        "priceAfterDiscount": 279,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-189-cover.jpg",
+        "images": [
+            "product-189-1.jpg",
+            "product-189-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.4,
+        "ratingsQuantity": 378
+    },
+    {
+        "title": "Product 190",
+        "description": "This is a long dummy description for product 190 with enough characters to pass validation.",
+        "quantity": 200,
+        "sold": 10,
+        "price": 290,
+        "priceAfterDiscount": 280,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-190-cover.jpg",
+        "images": [
+            "product-190-1.jpg",
+            "product-190-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.5,
+        "ratingsQuantity": 380
+    },
+    {
+        "title": "Product 191",
+        "description": "This is a long dummy description for product 191 with enough characters to pass validation.",
+        "quantity": 201,
+        "sold": 11,
+        "price": 291,
+        "priceAfterDiscount": 281,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-191-cover.jpg",
+        "images": [
+            "product-191-1.jpg",
+            "product-191-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 4.6,
+        "ratingsQuantity": 382
+    },
+    {
+        "title": "Product 192",
+        "description": "This is a long dummy description for product 192 with enough characters to pass validation.",
+        "quantity": 202,
+        "sold": 12,
+        "price": 292,
+        "priceAfterDiscount": 282,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-192-cover.jpg",
+        "images": [
+            "product-192-1.jpg",
+            "product-192-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.7,
+        "ratingsQuantity": 384
+    },
+    {
+        "title": "Product 193",
+        "description": "This is a long dummy description for product 193 with enough characters to pass validation.",
+        "quantity": 203,
+        "sold": 13,
+        "price": 293,
+        "priceAfterDiscount": 283,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-193-cover.jpg",
+        "images": [
+            "product-193-1.jpg",
+            "product-193-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 4.8,
+        "ratingsQuantity": 386
+    },
+    {
+        "title": "Product 194",
+        "description": "This is a long dummy description for product 194 with enough characters to pass validation.",
+        "quantity": 204,
+        "sold": 14,
+        "price": 294,
+        "priceAfterDiscount": 284,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-194-cover.jpg",
+        "images": [
+            "product-194-1.jpg",
+            "product-194-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 4.9,
+        "ratingsQuantity": 388
+    },
+    {
+        "title": "Product 195",
+        "description": "This is a long dummy description for product 195 with enough characters to pass validation.",
+        "quantity": 205,
+        "sold": 15,
+        "price": 295,
+        "priceAfterDiscount": 285,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-195-cover.jpg",
+        "images": [
+            "product-195-1.jpg",
+            "product-195-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.5,
+        "ratingsQuantity": 390
+    },
+    {
+        "title": "Product 196",
+        "description": "This is a long dummy description for product 196 with enough characters to pass validation.",
+        "quantity": 206,
+        "sold": 16,
+        "price": 296,
+        "priceAfterDiscount": 286,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-196-cover.jpg",
+        "images": [
+            "product-196-1.jpg",
+            "product-196-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 3.6,
+        "ratingsQuantity": 392
+    },
+    {
+        "title": "Product 197",
+        "description": "This is a long dummy description for product 197 with enough characters to pass validation.",
+        "quantity": 207,
+        "sold": 17,
+        "price": 297,
+        "priceAfterDiscount": 287,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-197-cover.jpg",
+        "images": [
+            "product-197-1.jpg",
+            "product-197-2.jpg"
+        ],
+        "category": "698bf4ad653d621d0e2699e9",
+        "ratingsAverage": 3.7,
+        "ratingsQuantity": 394
+    },
+    {
+        "title": "Product 198",
+        "description": "This is a long dummy description for product 198 with enough characters to pass validation.",
+        "quantity": 208,
+        "sold": 18,
+        "price": 298,
+        "priceAfterDiscount": 288,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-198-cover.jpg",
+        "images": [
+            "product-198-1.jpg",
+            "product-198-2.jpg"
+        ],
+        "category": "698bfe66a8cc2e474e11f088",
+        "ratingsAverage": 3.8,
+        "ratingsQuantity": 396
+    },
+    {
+        "title": "Product 199",
+        "description": "This is a long dummy description for product 199 with enough characters to pass validation.",
+        "quantity": 209,
+        "sold": 19,
+        "price": 299,
+        "priceAfterDiscount": 289,
+        "colors": [
+            "red",
+            "blue"
+        ],
+        "imageCover": "product-199-cover.jpg",
+        "images": [
+            "product-199-1.jpg",
+            "product-199-2.jpg"
+        ],
+        "category": "6994aff2a1fafc9947847345",
+        "ratingsAverage": 3.9,
+        "ratingsQuantity": 398
+    },
+    {
+        "title": "Product 200",
+        "description": "This is a long dummy description for product 200 with enough characters to pass validation.",
+        "quantity": 210,
+        "sold": 0,
+        "price": 300,
+        "priceAfterDiscount": 290,
+        "colors": [
+            "black",
+            "white"
+        ],
+        "imageCover": "product-200-cover.jpg",
+        "images": [
+            "product-200-1.jpg",
+            "product-200-2.jpg"
+        ],
+        "category": "6994b2201def07c8dd65245c",
+        "ratingsAverage": 4.0,
+        "ratingsQuantity": 400
+    }
+]

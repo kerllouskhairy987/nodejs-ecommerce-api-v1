@@ -94,15 +94,17 @@ exports.createProductValidator = [
     .withMessage("Subcategories must be an array of strings")
     .isMongoId()
     .withMessage("Subcategory must be a valid MongoDB ObjectId")
+    // check if all subcategories exist
     .custom((subcategoriesIds) =>
       SubCategoryModel.find({
         _id: { $exists: true, $in: subcategoriesIds },
       }).then((result) => {
-        if (result.length > 1 || result.length !== subcategoriesIds.length) {
+        if (result.length < 1 || result.length !== subcategoriesIds.length) {
           throw new ApiError(`Some or all subcategories not found`, 404);
         }
       }),
     )
+    // check if all subcategories belong to this 🔝 category
     .custom((val, { req }) =>
       SubCategoryModel.find({ category: req.body.category }).then(
         (subcategories) => {
@@ -110,14 +112,10 @@ exports.createProductValidator = [
           subcategories.forEach((subcategory) => {
             subcategoriesIdsInDB.push(subcategory._id.toString());
           });
-          console.log(subcategoriesIdsInDB);
-
-          SubCategoryModel.find({
-            _id: { $exists: true, $in: subcategoriesIdsInDB },
-          }).then((result) => {
-            console.log(result);
-            console.log("00000000000000000000000000000000000000000")
-          });
+          const isExist = val.every((id) => subcategoriesIdsInDB.includes(id));
+          if(!isExist) {
+            throw new ApiError(`Some or all subcategories does not belong to this category`, 404);
+          }
         },
       ),
     ),
