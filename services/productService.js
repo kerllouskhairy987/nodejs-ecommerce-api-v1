@@ -18,52 +18,99 @@ exports.postProduct = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Get list of products
+// @desc    Get list of products (ULTRA OPTIMIZED)
 // @route   GET /api/v1/products
 // @access  Public
 exports.getProducts = asyncHandler(async (req, res) => {
-  // 1) Filtering
-  const queryStringObj = { ...req.query };
-  const removeFields = ["page", "limit", "sort", "fields"];
-  removeFields.forEach((field) => delete queryStringObj[field]);
-  // Apply Filtration using $gt, $gte, $lt, $lte, $in
-  let queryString = JSON.stringify(queryStringObj);
+  const {
+    page = 1,
+    limit = 50,
+    sort,
+    fields,
+    keyword,
+    lastId, // 🔥 cursor pagination
+    ...filters
+  } = req.query;
+
+  // =========================
+  // 1) Build Filter Object
+  // =========================
+
+  let mongoFilter = { ...filters };
+
+  // operators support (gt,gte,lt,lte,in)
+  let queryString = JSON.stringify(mongoFilter);
   queryString = queryString.replace(
     /\b(gt|gte|lt|lte|in)\b/g,
     (match) => `$${match}`,
   );
 
-  // 2) Pagination
-  const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 50;
-  const skip = (page - 1) * limit;
+  mongoFilter = JSON.parse(queryString);
 
-  // Build Query
-  let mongooseQuery = ProductModel.find(JSON.parse(queryString))
-    .skip(skip)
-    .limit(limit)
+  // =========================
+  // 2) TEXT SEARCH (INDEX FRIENDLY)
+  // =========================
+
+  if (keyword) {
+    mongoFilter.$text = { $search: `"${keyword}"` };
+  }
+
+  // =========================
+  // 3) CURSOR PAGINATION 🔥
+  // بدل skip التقيل
+  // =========================
+
+  if (lastId) {
+    mongoFilter._id = { $lt: lastId };
+  }
+
+  // =========================
+  // 4) Build Query
+  // =========================
+
+  let mongooseQuery = ProductModel.find(mongoFilter)
+    .limit(Number(limit))
     .populate({ path: "category", select: "name" })
     .lean();
 
-  // 3) Sorting
-  if (req.query.sort) {
-    // price, -sold => [price -sold] => price -sold
-    const sorting = req.query.sort.split(",").join(" ");
+  // =========================
+  // 5) Sorting (Index Friendly)
+  // =========================
+
+  if (sort) {
+    const sorting = sort.split(",").join(" ");
     mongooseQuery = mongooseQuery.sort(sorting);
+  } else if (keyword) {
+    // 🔥 مهم مع text index
+    mongooseQuery = mongooseQuery.sort({ score: { $meta: "textScore" } });
+    mongooseQuery = mongooseQuery.select({
+      score: { $meta: "textScore" },
+    });
   } else {
-    mongooseQuery = mongooseQuery.sort("createdAt");
+    mongooseQuery = mongooseQuery.sort("-createdAt");
   }
 
+  // =========================
+  // 6) Fields Limiting
+  // =========================
+
+  if (fields) {
+    mongooseQuery = mongooseQuery.select(fields.split(",").join(" "));
+  } else {
+    mongooseQuery = mongooseQuery.select("-__v");
+  }
+
+  // =========================
   // Execute Query
+  // =========================
+
   const products = await mongooseQuery;
 
   res.status(200).json({
     success: true,
     count: products.length,
-    page,
-    limit,
+    lastId: products.length ? products[products.length - 1]._id : null,
     data: products,
-    message: "Products retrieved successfully",
   });
 });
 
