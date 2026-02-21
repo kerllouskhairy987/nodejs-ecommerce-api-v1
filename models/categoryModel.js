@@ -22,6 +22,9 @@ const categorySchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// TODO: Text Search Index
+categorySchema.index({ name: "text" });
+
 // ** 3- make modal
 const CategoryModel = mongoose.model("Category", categorySchema);
 

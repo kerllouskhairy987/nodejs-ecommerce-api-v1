@@ -73,6 +73,9 @@ const productSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// TODO: Text Search Index
+productSchema.index({ title: "text", description: "text" });
+
 // ** 3- make modal
 const ProductModel = mongoose.model("Product", productSchema);
 

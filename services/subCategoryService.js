@@ -36,18 +36,58 @@ exports.postSubCategory = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/subCategories
 // @access  public
 exports.getSubCategories = asyncHandler(async (req, res) => {
-  const page = Number(req.query.page) || 1;
-  const limit = Number(req.query.limit) || 10;
-  const skip = (page - 1) * limit;
+  const {
+    // page = 1,
+    limit,
+    fields,
+    sort = "desc",
+    keyword,
+    lastId,
+    ...filters
+  } = req.query;
 
-  let filterObj = {};
-  if (req.params.categoryId) filterObj = { category: req.params.categoryId };
+  // TODO: 1) Build Filter Object
+  let mongoFilter = { ...filters };
+  console.log(mongoFilter); //{ price: { gte: '1200' } }
+  let queryString = JSON.stringify(mongoFilter);
+  console.log(queryString); //{"price":{"gte":"1200"}}
+  queryString = queryString.replace(
+    /\b(gt|gte|lt|lte|in)\b/g,
+    (match) => `$${match}`,
+  );
+  console.log(queryString); //{"price":{"$gte":"1200"}}
+  mongoFilter = JSON.parse(queryString);
+  console.log(mongoFilter); // { price: { '$gte': '1200' } }
 
-  const subCategories = await SubCategoryModel.find(filterObj)
-    .skip(skip)
-    .limit(limit)
-    .sort({ createdAt: req.query.sort === "asc" ? 1 : -1 })
-    .lean();
+  // TODO: 2) Normal Search Index
+  if (keyword) mongoFilter.name = { $regex: keyword.trim(), $options: "i" };
+
+  // TODO: 3) Cursor Pagination
+  if (lastId) {
+    if (sort === "asc") {
+      mongoFilter._id = { $gt: lastId };
+    } else if (sort === "desc") {
+      mongoFilter._id = { $lt: lastId };
+    }
+  }
+
+  // TODO: 4) Build Mongoose Query
+  const mongooseQuery = SubCategoryModel.find(mongoFilter).limit(limit).lean();
+
+  // TODO: 5) Sort
+  if (sort === "asc") {
+    mongooseQuery.sort({ createdAt: 1 });
+  } else if (sort === "desc") {
+    mongooseQuery.sort({ createdAt: -1 });
+  }
+
+  // TODO: 6) Fields Limiting
+  if (fields) mongooseQuery.select(fields.split(",").join(" "));
+
+  if (req.params.categoryId)
+    mongoFilter = { ...mongoFilter, category: req.params.categoryId };
+
+  const subCategories = await mongooseQuery;
 
   res.status(200).json({
     success: true,

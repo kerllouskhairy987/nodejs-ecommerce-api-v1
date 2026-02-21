@@ -23,65 +23,46 @@ exports.postProduct = asyncHandler(async (req, res, next) => {
 // @access  Public
 exports.getProducts = asyncHandler(async (req, res) => {
   const {
-    page = 1,
+    // page = 1,
     limit = 50,
     sort,
     fields,
     keyword,
-    lastId, // 🔥 cursor pagination
+    lastId, // cursor pagination
     ...filters
   } = req.query;
 
-  // =========================
-  // 1) Build Filter Object
-  // =========================
-
+  // TODO: 1) Build Filter Object
   let mongoFilter = { ...filters };
-
-  // operators support (gt,gte,lt,lte,in)
   let queryString = JSON.stringify(mongoFilter);
   queryString = queryString.replace(
     /\b(gt|gte|lt|lte|in)\b/g,
     (match) => `$${match}`,
   );
-
   mongoFilter = JSON.parse(queryString);
 
-  // =========================
-  // 2) TEXT SEARCH (INDEX FRIENDLY)
-  // =========================
-
+  // TODO: 2) TEXT SEARCH (INDEX FRIENDLY)
   if (keyword) {
     mongoFilter.$text = { $search: `"${keyword}"` };
   }
 
-  // =========================
-  // 3) CURSOR PAGINATION 🔥
+  // TODO: 3) CURSOR PAGINATION 🔥
   // بدل skip التقيل
-  // =========================
-
   if (lastId) {
     mongoFilter._id = { $lt: lastId };
   }
 
-  // =========================
-  // 4) Build Query
-  // =========================
-
+  // TODO: 4) Build Query
   let mongooseQuery = ProductModel.find(mongoFilter)
     .limit(Number(limit))
     .populate({ path: "category", select: "name" })
     .lean();
 
-  // =========================
-  // 5) Sorting (Index Friendly)
-  // =========================
-
+  // TODO: 5) Sorting (Index Friendly)
   if (sort) {
     const sorting = sort.split(",").join(" ");
     mongooseQuery = mongooseQuery.sort(sorting);
   } else if (keyword) {
-    // 🔥 مهم مع text index
     mongooseQuery = mongooseQuery.sort({ score: { $meta: "textScore" } });
     mongooseQuery = mongooseQuery.select({
       score: { $meta: "textScore" },
@@ -90,20 +71,14 @@ exports.getProducts = asyncHandler(async (req, res) => {
     mongooseQuery = mongooseQuery.sort("-createdAt");
   }
 
-  // =========================
-  // 6) Fields Limiting
-  // =========================
-
+  // TODO: 6) Fields Limiting
   if (fields) {
     mongooseQuery = mongooseQuery.select(fields.split(",").join(" "));
   } else {
     mongooseQuery = mongooseQuery.select("-__v");
   }
 
-  // =========================
-  // Execute Query
-  // =========================
-
+  // TODO: Execute Query
   const products = await mongooseQuery;
 
   res.status(200).json({
