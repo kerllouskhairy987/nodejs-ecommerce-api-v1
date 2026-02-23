@@ -4,6 +4,7 @@ const { default: slugify } = require("slugify");
 const ProductModel = require("../models/productModel");
 const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
+const { deleteOne } = require("./handlersFactory");
 
 // @desc    post a new product
 // @route   POST /api/v1/products
@@ -156,16 +157,4 @@ exports.updateProduct = asyncHandler(async (req, res, next) => {
 // @desc    Delete a product by id
 // @route   DELETE /api/v1/products/:id
 // @access  Private
-exports.deleteProduct = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const product = await ProductModel.findByIdAndDelete({ _id: id });
-
-  if (!product) {
-    return next(new ApiError(`Product not found with this id ${id}`, 404));
-  }
-
-  res.status(200).json({
-    success: true,
-    message: "Product deleted successfully",
-  });
-});
+exports.deleteProduct = deleteOne(ProductModel);
