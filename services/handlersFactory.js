@@ -14,3 +14,23 @@ exports.deleteOne = (Model) =>
       message: "document deleted successfully",
     });
   });
+
+exports.updateOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const document = await Model.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!document) {
+      return next(
+        new ApiError(`document not found with this id ${req.params.id}`, 404),
+      );
+    }
+
+    res.status(200).json({
+      success: true,
+      data: document,
+      message: "document updated successfully",
+    });
+  });

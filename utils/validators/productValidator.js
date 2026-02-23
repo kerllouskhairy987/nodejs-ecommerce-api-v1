@@ -1,4 +1,5 @@
 const { check } = require("express-validator");
+const slugify = require("slugify");
 const validateMiddleware = require("../../middlewares/categoryMiddleware");
 const CategoryModel = require("../../models/categoryModel");
 const ApiError = require("../apiError");
@@ -113,8 +114,11 @@ exports.createProductValidator = [
             subcategoriesIdsInDB.push(subcategory._id.toString());
           });
           const isExist = val.every((id) => subcategoriesIdsInDB.includes(id));
-          if(!isExist) {
-            throw new ApiError(`Some or all subcategories does not belong to this category`, 404);
+          if (!isExist) {
+            throw new ApiError(
+              `Some or all subcategories does not belong to this category`,
+              404,
+            );
           }
         },
       ),
@@ -154,6 +158,21 @@ exports.updateProductValidator = [
     .withMessage("Product ID is required")
     .isMongoId()
     .withMessage("Product ID must be a valid MongoDB ObjectId"),
+
+  check("title")
+    .optional()
+    .notEmpty()
+    .withMessage("Title is required")
+    .isLength({ min: 3 })
+    .withMessage("Title must be at least 3 characters long")
+    .isLength({ max: 100 })
+    .withMessage("Title must be at most 100 characters long")
+    // TODO: update slug if title is updated
+    .custom((val, { req }) => {
+      if (!val) return false;
+      req.body.slug = slugify(val);
+      return true;
+    }),
 
   validateMiddleware,
 ];

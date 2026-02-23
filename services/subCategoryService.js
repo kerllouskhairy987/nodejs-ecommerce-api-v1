@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 const SubCategoryModel = require("../models/subCategoryModel");
 const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne } = require("./handlersFactory");
+const { deleteOne, updateOne } = require("./handlersFactory");
 
 // @desc    set categoryId to body
 // @route   POST /api/v1/categories/:categoryId/subCategories
@@ -91,32 +91,7 @@ exports.getSubCategory = asyncHandler(async (req, res, next) => {
 // @desc   update sub category by id
 // @route   PUT /api/v1/subCategories/:id
 // @access  private
-exports.updateSubCategory = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-
-  if (req.body.name) {
-    req.body.slug = slugify(req.body.name);
-  }
-
-  const subCategory = await SubCategoryModel.findByIdAndUpdate(
-    { _id: id },
-    req.body,
-    {
-      new: true, // return the updated document after update
-      runValidators: true, // run schema validators on the update operation
-    },
-  );
-
-  if (!subCategory) {
-    return next(new ApiError(`SubCategory not found with this id ${id}`, 404));
-  }
-
-  res.status(200).json({
-    success: true,
-    data: subCategory,
-    message: "SubCategory updated successfully",
-  });
-});
+exports.updateSubCategory = updateOne(SubCategoryModel);
 
 // @desc   delete sub category by id
 // @route   DELETE /api/v1/subCategories/:id

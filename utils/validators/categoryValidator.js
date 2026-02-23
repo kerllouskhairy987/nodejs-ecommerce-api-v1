@@ -1,4 +1,5 @@
 const { check } = require("express-validator");
+const slugify = require("slugify");
 const validateMiddleware = require("../../middlewares/categoryMiddleware");
 
 // @desc   validators for create category routes
@@ -31,7 +32,13 @@ exports.updateCategoryValidator = [
     .withMessage("Category name must be at least 3 characters")
     .isLength({ max: 32 })
     .withMessage("Category name must be at most 32 characters")
-    .trim(),
+    .trim()
+    // TODO: update slugify if name updated
+    .custom((val, { req }) => {
+      if (!val) return false;
+      req.body.slug = slugify(val);
+      return true;
+    }),
   validateMiddleware,
 ];
 

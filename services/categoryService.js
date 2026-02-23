@@ -3,7 +3,7 @@ const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
 const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne } = require("./handlersFactory");
+const { deleteOne, updateOne } = require("./handlersFactory");
 
 // @desc    post categories
 // @route   POST /api/v1/categories
@@ -67,26 +67,7 @@ exports.getSingleCategoryById = asyncHandler(async (req, res, next) => {
 // @desc    update category by id
 // @route   PUT /api/v1/categories/:id
 // @access  private
-exports.updateCategoryById = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-
-  const category = await CategoryModel.findByIdAndUpdate(
-    { _id: id },
-    { name: req.body.name, slug: slugify(req.body.name) },
-    {
-      new: true, // return the updated document after update
-      runValidators: true,
-    },
-  );
-  if (!category) {
-    return next(new ApiError(`Category not found with this id ${id}`, 404));
-  }
-  res.status(200).json({
-    success: true,
-    data: category,
-    message: "Category updated successfully",
-  });
-});
+exports.updateCategoryById = updateOne(CategoryModel);
 
 // @desc    delete category by id
 // @route   DELETE /api/v1/categories/:id
