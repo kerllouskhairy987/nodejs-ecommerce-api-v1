@@ -2,6 +2,7 @@ const slugify = require("slugify");
 const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
 const ApiError = require("../utils/apiError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // @desc    post categories
 // @route   POST /api/v1/categories
@@ -23,65 +24,24 @@ exports.postCategories = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/categories
 // @access  public
 exports.getListOfCategories = asyncHandler(async (req, res) => {
-  const {
-    page,
-    limit,
-    sort = "desc",
-    fields,
-    keyword,
-    lastId,
-    ...filters
-  } = req.query;
+  // TODO: 4) Build Mongoose Query
+  const countDocuments = await CategoryModel.countDocuments();
+  const apiFeatures = new ApiFeatures(CategoryModel.find(), req.query)
+    .filter()
+    .search()
+    .paginate(countDocuments)
+    .sort()
+    .limitFields();
 
-  // TODO: 1) Build Filter Object
-  let mongoFilter = { ...filters };
-  console.log(mongoFilter); // { price: { gte: '100' } }
-  let queryString = JSON.stringify(mongoFilter);
-  console.log(queryString); // {"price":{"gte":"100"}}
-  queryString = queryString.replace(
-    /\b(gt|gte|lt|lte|in)\b/g,
-    (match) => `$${match}`,
-  );
-  console.log(queryString); // {"price":{"$gte":"100"}}
-  mongoFilter = JSON.parse(queryString);
-  console.log(mongoFilter); // { price: { '$gte': '100' } }
-
-  // TODO: 2) Normal Search Index
-  if (keyword) {
-    mongoFilter.name = { $regex: keyword.trim(), $options: "i" };
-  }
-
-  // TODO: 3) Cursor Pagination
-  if (lastId) {
-    if (sort && sort === "asc") {
-      mongoFilter._id = { $gt: lastId };
-    } else if (sort && sort === "desc") {
-      mongoFilter._id = { $lt: lastId };
-    }
-  }
-
-  // TODO: 5) Mongoose Query
-  const mongooseQuery = CategoryModel.find(mongoFilter).limit(limit).lean();
-
-  // TODO: 4) Sort
-  if (sort === "asc") {
-    mongooseQuery.sort({ createdAt: 1 });
-  } else if (sort === "desc") {
-    mongooseQuery.sort({ createdAt: -1 });
-  }
-
-  // TODO: 6) Fields Limiting
-  if (fields) {
-    mongooseQuery.select(fields.split(",").join(" "));
-  } else {
-    mongooseQuery.select("-__v");
-  }
-
+  // TODO: 5) Exec
+  const { mongooseQuery, paginationResult } = apiFeatures;
   const categories = await mongooseQuery;
 
   res.status(200).json({
     success: true,
     count: categories.length,
+    paginationResult,
+    lastId: categories.length ? categories[categories.length - 1]._id : null,
     data: categories,
     message: "Categories retrieved successfully",
   });

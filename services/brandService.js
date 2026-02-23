@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const { default: slugify } = require("slugify");
 const BrandModel = require("../models/brandModel");
 const ApiError = require("../utils/apiError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // @desc    Post a brand
 // @route   POST /api/v1/brands
@@ -21,68 +22,91 @@ exports.postBrand = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/brands
 // @access  Public
 exports.getBrands = asyncHandler(async (req, res) => {
-  const {
-    page,
-    limit,
-    sort = "desc",
-    fields,
-    keyword,
-    lastId,
-    ...filters
-  } = req.query;
-
-  // TODO: 2) Build Filter Object
-  let mongoFilter = { ...filters };
-  console.log(mongoFilter); //{ price: { gt: '100' } }
-  let queryString = JSON.stringify(mongoFilter);
-  console.log(queryString); //{"price":{"gt":"100"}}
-  queryString = queryString.replace(
-    /\b(gt|gte|lt|lte|in)\b/g,
-    (match) => `$${match}`,
-  );
-  console.log(queryString); //{"price":{"$gt":"100"}}
-  mongoFilter = JSON.parse(queryString);
-  console.log(mongoFilter); // { price: { '$gt': '100' } }
-
-  // TODO: 2) Normal Search Index
-  if (keyword) {
-    mongoFilter.name = { $regex: keyword.trim(), $options: "i" };
-  }
-
-  // TODO: 3) Cursor Pagination
-  if (lastId) {
-    if (sort && sort === "asc") {
-      mongoFilter._id = { $gt: lastId };
-    } else if (sort && sort === "desc") {
-      mongoFilter._id = { $lt: lastId };
-    }
-  }
-
   // TODO: 4) Build Mongoose Query
-  const mongooseQuery = BrandModel.find(mongoFilter).limit(limit).lean();
+  const countDocuments = await BrandModel.countDocuments();
+  const apiFeatures = new ApiFeatures(BrandModel.find(), req.query)
+    .filter()
+    .search()
+    .paginate(countDocuments)
+    .sort()
+    .limitFields();
 
-  // TODO: 5) Sort
-  if (sort === "asc") {
-    mongooseQuery.sort({ createdAt: 1 });
-  } else if (sort === "desc") {
-    mongooseQuery.sort({ createdAt: -1 });
-  }
-
-  // TODO: 6) Fields Limiting
-  if (fields) {
-    console.log(fields);
-    mongooseQuery.select(fields.split(",").join(" "));
-  }
-
+  // TODO: 5) Execute Mongoose Query
+  const { mongooseQuery, paginationResult } = apiFeatures;
   const brands = await mongooseQuery;
 
   res.status(200).json({
     success: true,
     count: brands.length,
+    paginationResult,
+    lastId: brands.length ? brands[brands.length - 1]._id : null,
     data: brands,
     message: "Brands retrieved successfully",
   });
 });
+
+// exports.getBrands = asyncHandler(async (req, res) => {
+//   const {
+//     page,
+//     limit,
+//     sort = "desc",
+//     fields,
+//     keyword,
+//     lastId,
+//     ...filters
+//   } = req.query;
+
+//   // TODO: 2) Build Filter Object
+//   let mongoFilter = { ...filters };
+//   console.log(mongoFilter); //{ price: { gt: '100' } }
+//   let queryString = JSON.stringify(mongoFilter);
+//   console.log(queryString); //{"price":{"gt":"100"}}
+//   queryString = queryString.replace(
+//     /\b(gt|gte|lt|lte|in)\b/g,
+//     (match) => `$${match}`,
+//   );
+//   console.log(queryString); //{"price":{"$gt":"100"}}
+//   mongoFilter = JSON.parse(queryString);
+//   console.log(mongoFilter); // { price: { '$gt': '100' } }
+
+//   // TODO: 2) Normal Search Index
+//   if (keyword)
+//     mongoFilter.name = { $regex: `^${keyword.trim()}`, $options: "i" };
+
+//   // TODO: 3) Cursor Pagination
+//   if (lastId) {
+//     if (sort && sort === "asc") {
+//       mongoFilter._id = { $gt: lastId };
+//     } else if (sort && sort === "desc") {
+//       mongoFilter._id = { $lt: lastId };
+//     }
+//   }
+
+//   // TODO: 4) Build Mongoose Query
+//   const mongooseQuery = BrandModel.find(mongoFilter).limit(limit).lean();
+
+//   // TODO: 5) Sort
+//   if (sort === "asc") {
+//     mongooseQuery.sort({ createdAt: 1 });
+//   } else if (sort === "desc") {
+//     mongooseQuery.sort({ createdAt: -1 });
+//   }
+
+//   // TODO: 6) Fields Limiting
+//   if (fields) {
+//     console.log(fields);
+//     mongooseQuery.select(fields.split(",").join(" "));
+//   }
+
+//   const brands = await mongooseQuery;
+
+//   res.status(200).json({
+//     success: true,
+//     count: brands.length,
+//     data: brands,
+//     message: "Brands retrieved successfully",
+//   });
+// });
 
 // @desc   Get a single brand by id
 // @route  GET /api/v1/brands/:id

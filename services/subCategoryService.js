@@ -3,6 +3,7 @@ const asyncHandler = require("express-async-handler");
 
 const SubCategoryModel = require("../models/subCategoryModel");
 const ApiError = require("../utils/apiError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // @desc    set categoryId to body
 // @route   POST /api/v1/categories/:categoryId/subCategories
@@ -36,62 +37,33 @@ exports.postSubCategory = asyncHandler(async (req, res) => {
 // @route   GET /api/v1/subCategories
 // @access  public
 exports.getSubCategories = asyncHandler(async (req, res) => {
-  const {
-    // page = 1,
-    limit,
-    fields,
-    sort = "desc",
-    keyword,
-    lastId,
-    ...filters
-  } = req.query;
-
-  // TODO: 1) Build Filter Object
-  let mongoFilter = { ...filters };
-  console.log(mongoFilter); //{ price: { gte: '1200' } }
-  let queryString = JSON.stringify(mongoFilter);
-  console.log(queryString); //{"price":{"gte":"1200"}}
-  queryString = queryString.replace(
-    /\b(gt|gte|lt|lte|in)\b/g,
-    (match) => `$${match}`,
-  );
-  console.log(queryString); //{"price":{"$gte":"1200"}}
-  mongoFilter = JSON.parse(queryString);
-  console.log(mongoFilter); // { price: { '$gte': '1200' } }
-
-  // TODO: 2) Normal Search Index
-  if (keyword) mongoFilter.name = { $regex: keyword.trim(), $options: "i" };
-
-  // TODO: 3) Cursor Pagination
-  if (lastId) {
-    if (sort === "asc") {
-      mongoFilter._id = { $gt: lastId };
-    } else if (sort === "desc") {
-      mongoFilter._id = { $lt: lastId };
-    }
+  // TODO: --> get sub categories by category
+  const queryObj = { ...req.query };
+  if (req.params.categoryId) {
+    console.log("done");
+    queryObj.category = req.params.categoryId;
   }
 
   // TODO: 4) Build Mongoose Query
-  const mongooseQuery = SubCategoryModel.find(mongoFilter).limit(limit).lean();
+  const countDocuments = await SubCategoryModel.countDocuments();
+  const apiFeatures = new ApiFeatures(SubCategoryModel.find(), queryObj)
+    .filter()
+    .search()
+    .paginate(countDocuments)
+    .sort()
+    .limitFields();
 
-  // TODO: 5) Sort
-  if (sort === "asc") {
-    mongooseQuery.sort({ createdAt: 1 });
-  } else if (sort === "desc") {
-    mongooseQuery.sort({ createdAt: -1 });
-  }
-
-  // TODO: 6) Fields Limiting
-  if (fields) mongooseQuery.select(fields.split(",").join(" "));
-
-  if (req.params.categoryId)
-    mongoFilter = { ...mongoFilter, category: req.params.categoryId };
-
+  // TODO: 5) Execute Mongoose Query
+  const { mongooseQuery, paginationResult } = apiFeatures;
   const subCategories = await mongooseQuery;
 
   res.status(200).json({
     success: true,
     count: subCategories.length,
+    paginationResult,
+    lastId: subCategories.length
+      ? subCategories[subCategories.length - 1]._id
+      : null,
     data: subCategories,
     message: "SubCategories retrieved successfully",
   });
