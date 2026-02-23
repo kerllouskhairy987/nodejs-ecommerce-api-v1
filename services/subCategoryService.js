@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 const SubCategoryModel = require("../models/subCategoryModel");
 const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne, updateOne } = require("./handlersFactory");
+const { deleteOne, updateOne, createOne } = require("./handlersFactory");
 
 // @desc    set categoryId to body
 // @route   POST /api/v1/categories/:categoryId/subCategories
@@ -18,21 +18,7 @@ exports.setCategoryIdToBody = (req, res, next) => {
 // @desc    post sub categories
 // @route   POST /api/v1/subCategories
 // @access  private
-exports.postSubCategory = asyncHandler(async (req, res) => {
-  const { name, category } = req.body;
-
-  const subCategory = await SubCategoryModel.create({
-    name,
-    slug: slugify(name),
-    category,
-  });
-
-  res.status(201).json({
-    success: true,
-    data: subCategory,
-    message: "SubCategory created successfully",
-  });
-});
+exports.postSubCategory = createOne(SubCategoryModel);
 
 // @desc    get list of sub categories
 // @route   GET /api/v1/subCategories

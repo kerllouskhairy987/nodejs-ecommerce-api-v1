@@ -4,21 +4,12 @@ const { default: slugify } = require("slugify");
 const ProductModel = require("../models/productModel");
 const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne, updateOne } = require("./handlersFactory");
+const { deleteOne, updateOne, createOne } = require("./handlersFactory");
 
 // @desc    post a new product
 // @route   POST /api/v1/products
 // @access  Private
-exports.postProduct = asyncHandler(async (req, res, next) => {
-  req.body.slug = slugify(req.body.title);
-
-  const product = await ProductModel.create(req.body);
-  res.status(201).json({
-    success: true,
-    data: product,
-    message: "Product created successfully",
-  });
-});
+exports.postProduct = createOne(ProductModel);
 
 // @desc    Get list of products (ULTRA OPTIMIZED)
 // @route   GET /api/v1/products

@@ -11,7 +11,13 @@ exports.createProductValidator = [
     .notEmpty()
     .withMessage("Title is required")
     .isLength({ min: 3, max: 100 })
-    .withMessage("Title must be between 3 and 100 characters long"),
+    .withMessage("Title must be between 3 and 100 characters long")
+    // TODO: update slug if title is updated
+    .custom((val, { req }) => {
+      if (!val) return false;
+      req.body.slug = slugify(val);
+      return true;
+    }),
 
   check("description")
     .notEmpty()

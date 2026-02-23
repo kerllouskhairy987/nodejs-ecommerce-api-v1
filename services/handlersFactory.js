@@ -1,6 +1,9 @@
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 
+// @desc    delete one document
+// @route   DELETE /api/v1/:Model/:id
+// @access  Private
 exports.deleteOne = (Model) =>
   asyncHandler(async (req, res, next) => {
     const { id } = req.params;
@@ -15,6 +18,9 @@ exports.deleteOne = (Model) =>
     });
   });
 
+// @desc    update one document
+// @route   PUT /api/v1/:Model/:id
+// @access  Private
 exports.updateOne = (Model) =>
   asyncHandler(async (req, res, next) => {
     const document = await Model.findByIdAndUpdate(req.params.id, req.body, {
@@ -32,5 +38,19 @@ exports.updateOne = (Model) =>
       success: true,
       data: document,
       message: "document updated successfully",
+    });
+  });
+
+// @desc    create one document
+// @route   POST /api/v1/:Model
+// @access  Private
+exports.createOne = (Model) =>
+  asyncHandler(async (req, res) => {
+    const newDocument = await Model.create(req.body);
+
+    res.status(201).json({
+      success: true,
+      data: newDocument,
+      message: "newDocument created successfully",
     });
   });
