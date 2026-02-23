@@ -1,8 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const BrandModel = require("../models/brandModel");
-const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne, updateOne, createOne } = require("./handlersFactory");
+const {
+  deleteOne,
+  updateOne,
+  createOne,
+  getOne,
+} = require("./handlersFactory");
 
 // @desc    Post a brand
 // @route   POST /api/v1/brands
@@ -102,19 +106,7 @@ exports.getBrands = asyncHandler(async (req, res) => {
 // @desc   Get a single brand by id
 // @route  GET /api/v1/brands/:id
 // @access Public
-exports.getBrand = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const brand = await BrandModel.findById(id);
-  if (!brand) {
-    return next(new ApiError(`Brand not found with this id ${id}`, 404));
-  }
-
-  res.status(200).json({
-    success: true,
-    data: brand,
-    message: "Brand retrieved successfully",
-  });
-});
+exports.getBrand = getOne(BrandModel);
 
 // @desc    Update a brand by id
 // @route   PUT /api/v1/brands/:id

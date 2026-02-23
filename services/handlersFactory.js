@@ -54,3 +54,23 @@ exports.createOne = (Model) =>
       message: "newDocument created successfully",
     });
   });
+
+// @desc    get one document
+// @route   GET /api/v1/:Model/:id
+// @access  Public
+exports.getOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const document = await Model.findById(req.params.id);
+
+    if (!document) {
+      return next(
+        new ApiError(`document not found with this id ${req.params.id}`, 404),
+      );
+    }
+
+    res.status(200).json({
+      success: true,
+      data: document,
+      message: "document retrieved successfully",
+    });
+  });

@@ -1,8 +1,12 @@
 const asyncHandler = require("express-async-handler");
 const CategoryModel = require("../models/categoryModel");
-const ApiError = require("../utils/apiError");
 const ApiFeatures = require("../utils/apiFeatures");
-const { deleteOne, updateOne, createOne } = require("./handlersFactory");
+const {
+  deleteOne,
+  updateOne,
+  createOne,
+  getOne,
+} = require("./handlersFactory");
 
 // @desc    post categories
 // @route   POST /api/v1/categories
@@ -39,18 +43,7 @@ exports.getListOfCategories = asyncHandler(async (req, res) => {
 // @desc    get single category by id
 // @route   GET /api/v1/categories/:id
 // @access  public
-exports.getSingleCategoryById = asyncHandler(async (req, res, next) => {
-  const { id } = req.params;
-  const category = await CategoryModel.findById(id);
-  if (!category) {
-    return next(new ApiError(`Category not found with this id ${id}`, 404));
-  }
-  res.status(200).json({
-    success: true,
-    data: category,
-    message: "Category retrieved successfully",
-  });
-});
+exports.getSingleCategoryById = getOne(CategoryModel);
 
 // @desc    update category by id
 // @route   PUT /api/v1/categories/:id
