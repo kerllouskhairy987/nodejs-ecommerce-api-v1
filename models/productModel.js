@@ -76,6 +76,14 @@ const productSchema = new mongoose.Schema(
 // TODO: Text Search Index
 productSchema.index({ title: "text", description: "text" });
 
+// TODO: Populate with mongoose middleware
+productSchema.pre(/^find/, function () {
+  this.populate({
+    path: "category",
+    select: "name",
+  });
+});
+
 // ** 3- make modal
 const ProductModel = mongoose.model("Product", productSchema);
 
