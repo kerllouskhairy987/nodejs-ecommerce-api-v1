@@ -1,11 +1,10 @@
-const asyncHandler = require("express-async-handler");
 const ProductModel = require("../models/productModel");
-const ApiFeatures = require("../utils/apiFeatures");
 const {
   deleteOne,
   updateOne,
   createOne,
   getOne,
+  getAll,
 } = require("./handlersFactory");
 
 // @desc    post a new product
@@ -16,28 +15,7 @@ exports.postProduct = createOne(ProductModel);
 // @desc    Get list of products (ULTRA OPTIMIZED)
 // @route   GET /api/v1/products
 // @access  Public
-exports.getProducts = asyncHandler(async (req, res) => {
-  // TODO: 4) Build Mongoose Query
-  const countDocuments = await ProductModel.countDocuments();
-  const apiFeatures = new ApiFeatures(ProductModel.find(), req.query)
-    .filter()
-    .search()
-    .paginate(countDocuments)
-    .sort()
-    .limitFields();
-
-  // TODO: 5) Execute Mongoose Query
-  const { mongooseQuery, paginationResult } = apiFeatures;
-  const products = await mongooseQuery;
-
-  res.status(200).json({
-    success: true,
-    count: products.length,
-    paginationResult,
-    lastId: products.length ? products[products.length - 1]._id : null,
-    data: products,
-  });
-});
+exports.getProducts = getAll(ProductModel);
 
 // exports.getProducts = asyncHandler(async (req, res) => {
 //   const {

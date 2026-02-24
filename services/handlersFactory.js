@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
+const ApiFeatures = require("../utils/apiFeatures");
 
 // @desc    delete one document
 // @route   DELETE /api/v1/:Model/:id
@@ -72,5 +73,41 @@ exports.getOne = (Model) =>
       success: true,
       data: document,
       message: "document retrieved successfully",
+    });
+  });
+
+// @desc     get all document
+// @route    GET /api/v1/:Model
+// @access   Public
+exports.getAll = (Model) =>
+  asyncHandler(async (req, res) => {
+    // TODO: --> get sub categories by category
+    const queryObj = { ...req.query };
+    if (req.params.categoryId) {
+      queryObj.category = req.params.categoryId;
+    }
+
+    console.log(req.query);
+
+    // TODO: 4) Build Mongoose Query
+    const countDocuments = await Model.countDocuments();
+    const apiFeatures = new ApiFeatures(Model.find(), queryObj)
+      .filter()
+      .search()
+      .paginate(countDocuments)
+      .sort()
+      .limitFields();
+
+    // TODO: 5) Execute Mongoose Query
+    const { mongooseQuery, paginationResult } = apiFeatures;
+    const documents = await mongooseQuery;
+
+    res.status(200).json({
+      success: true,
+      count: documents.length,
+      paginationResult,
+      lastId: documents.length ? documents[documents.length - 1]._id : null,
+      data: documents,
+      message: "documents retrieved successfully",
     });
   });

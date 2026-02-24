@@ -1,11 +1,10 @@
-const asyncHandler = require("express-async-handler");
 const BrandModel = require("../models/brandModel");
-const ApiFeatures = require("../utils/apiFeatures");
 const {
   deleteOne,
   updateOne,
   createOne,
   getOne,
+  getAll,
 } = require("./handlersFactory");
 
 // @desc    Post a brand
@@ -16,29 +15,7 @@ exports.postBrand = createOne(BrandModel);
 // @desc    Get list of brands
 // @route   GET /api/v1/brands
 // @access  Public
-exports.getBrands = asyncHandler(async (req, res) => {
-  // TODO: 4) Build Mongoose Query
-  const countDocuments = await BrandModel.countDocuments();
-  const apiFeatures = new ApiFeatures(BrandModel.find(), req.query)
-    .filter()
-    .search()
-    .paginate(countDocuments)
-    .sort()
-    .limitFields();
-
-  // TODO: 5) Execute Mongoose Query
-  const { mongooseQuery, paginationResult } = apiFeatures;
-  const brands = await mongooseQuery;
-
-  res.status(200).json({
-    success: true,
-    count: brands.length,
-    paginationResult,
-    lastId: brands.length ? brands[brands.length - 1]._id : null,
-    data: brands,
-    message: "Brands retrieved successfully",
-  });
-});
+exports.getBrands = getAll(BrandModel);
 
 // exports.getBrands = asyncHandler(async (req, res) => {
 //   const {
