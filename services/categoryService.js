@@ -1,5 +1,6 @@
+const asyncHandler = require("express-async-handler");
 const multer = require("multer");
-
+const sharp = require("sharp");
 const { v4: uuidv4 } = require("uuid");
 
 const CategoryModel = require("../models/categoryModel");
@@ -10,23 +11,50 @@ const {
   getOne,
   getAll,
 } = require("./handlersFactory");
+const ApiError = require("../utils/apiError");
 
 // DeskStorage
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/categories");
-  },
-  filename: function (req, file, cb) {
-    // category-${id}-${Data.now()}.jpeg
-    const ext = file.mimetype.split("/")[1];
-    const filename = `category-${uuidv4()}-${Date.now()}.${ext}`;
-    cb(null, filename);
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "uploads/categories");
+//   },
+//   filename: function (req, file, cb) {
+//     // category-${id}-${Data.now()}.jpeg
+//     const ext = file.mimetype.split("/")[1];
+//     const filename = `category-${uuidv4()}-${Date.now()}.${ext}`;
+//     cb(null, filename);
+//   },
+// });
 
-const upload = multer({ storage });
+// MemoryStorage
+const storage = multer.memoryStorage();
 
+// TODO: check if file is an image or not
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new ApiError("Only images are allowed", 400), false);
+  }
+};
+
+const upload = multer({ storage, fileFilter });
+
+// TODo: Middleware for uploading category image
 exports.uploadCategoryImage = upload.single("image");
+
+// TODO: Middleware for resizing category image
+exports.resizeCategoryImage = asyncHandler(async (req, res, next) => {
+  const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
+
+  await sharp(req.file.buffer)
+    .resize(600, 600)
+    .toFormat("jpeg")
+    .jpeg({ quality: 90 })
+    .toFile(`uploads/categories/${filename}`);
+
+  next();
+});
 
 // @desc    post categories
 // @route   POST /api/v1/categories
