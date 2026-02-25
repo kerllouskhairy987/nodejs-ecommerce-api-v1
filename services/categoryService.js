@@ -1,5 +1,4 @@
 const asyncHandler = require("express-async-handler");
-const multer = require("multer");
 const sharp = require("sharp");
 const { v4: uuidv4 } = require("uuid");
 
@@ -11,24 +10,11 @@ const {
   getOne,
   getAll,
 } = require("./handlersFactory");
-const ApiError = require("../utils/apiError");
 
-// MemoryStorage
-const storage = multer.memoryStorage();
-
-// TODO: check if file is an image or not
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith("image")) {
-    cb(null, true);
-  } else {
-    cb(new ApiError("Only images are allowed", 400), false);
-  }
-};
-
-const upload = multer({ storage, fileFilter });
+const { uploadSingleImage } = require("../middlewares/uploadImagesMiddleware");
 
 // TODo: Middleware for uploading category image
-exports.uploadCategoryImage = upload.single("image");
+exports.uploadCategoryImage = uploadSingleImage("image");
 
 // TODO: Middleware for resizing category image
 exports.resizeCategoryImage = asyncHandler(async (req, res, next) => {

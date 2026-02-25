@@ -1,9 +1,7 @@
-const multer = require("multer");
 const asyncHandler = require("express-async-handler");
 const sharp = require("sharp");
 const { v4: uuidv4 } = require("uuid");
 
-const BrandModel = require("../models/brandModel");
 const {
   deleteOne,
   updateOne,
@@ -11,22 +9,12 @@ const {
   getOne,
   getAll,
 } = require("./handlersFactory");
-const ApiError = require("../utils/apiError");
+const { uploadSingleImage } = require("../middlewares/uploadImagesMiddleware");
 
-// MemoryStorage
-const storage = multer.memoryStorage();
-// TODO: check if file is an image or not
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype.startsWith("image")) {
-    cb(null, true);
-  } else {
-    cb(new ApiError("Only images are allowed", 400), false);
-  }
-};
-const upload = multer({ storage, fileFilter });
+const BrandModel = require("../models/brandModel");
 
 // TODO: Middleware for uploading brand image
-exports.uploadBrandImage = upload.single("image");
+exports.uploadBrandImage = uploadSingleImage("image");
 
 // TODO: Middleware for resizing brand image
 exports.resizeBrandImage = asyncHandler(async (req, res, next) => {
