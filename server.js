@@ -2,6 +2,8 @@ const dns = require("dns");
 
 dns.setDefaultResultOrder("ipv4first");
 dns.setServers(["1.1.1.1", "8.8.8.8"]);
+// Build In modules
+const path = require("path");
 // packages
 const express = require("express");
 const dotenv = require("dotenv");
@@ -27,6 +29,9 @@ const app = express();
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// TODO: serve on static files
+app.use(express.static(path.join(__dirname, "uploads")));
 
 // query parser for filtering on products
 app.set("query parser", "extended");

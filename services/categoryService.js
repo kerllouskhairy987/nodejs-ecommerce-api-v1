@@ -13,19 +13,6 @@ const {
 } = require("./handlersFactory");
 const ApiError = require("../utils/apiError");
 
-// DeskStorage
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, "uploads/categories");
-//   },
-//   filename: function (req, file, cb) {
-//     // category-${id}-${Data.now()}.jpeg
-//     const ext = file.mimetype.split("/")[1];
-//     const filename = `category-${uuidv4()}-${Date.now()}.${ext}`;
-//     cb(null, filename);
-//   },
-// });
-
 // MemoryStorage
 const storage = multer.memoryStorage();
 
@@ -52,6 +39,8 @@ exports.resizeCategoryImage = asyncHandler(async (req, res, next) => {
     .toFormat("jpeg")
     .jpeg({ quality: 90 })
     .toFile(`uploads/categories/${filename}`);
+
+  req.body.image = filename;
 
   next();
 });
