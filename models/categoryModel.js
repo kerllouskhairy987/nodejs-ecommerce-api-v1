@@ -25,6 +25,22 @@ const categorySchema = new mongoose.Schema(
 // TODO: Text Search Index
 categorySchema.index({ name: "text" });
 
+// TODO: image url
+const imageUrlHandler = (doc) => {
+  if (doc.image) {
+    const imageUrl = `${process.env.BASE_URL}/categories/${doc.image}`;
+    doc.image = imageUrl;
+  }
+};
+// findOne, findAll and Update
+categorySchema.post("init", (doc) => {
+  imageUrlHandler(doc);
+});
+// create
+categorySchema.post("save", (doc) => {
+  imageUrlHandler(doc);
+});
+
 // ** 3- make modal
 const CategoryModel = mongoose.model("Category", categorySchema);
 

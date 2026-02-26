@@ -20,6 +20,22 @@ const brandSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// TODO: image url
+const imageUrlHandler = (doc) => {
+  if (doc.image) {
+    const imageUrl = `${process.env.BASE_URL}/brands/${doc.image}`;
+    doc.image = imageUrl;
+  }
+};
+// findOne, findAll and Update
+brandSchema.post("init", (doc) => {
+  imageUrlHandler(doc);
+});
+
+brandSchema.post("save", (doc) => {
+  imageUrlHandler(doc);
+});
+
 // ** 3- make modal
 const BrandModel = mongoose.model("Brand", brandSchema);
 
