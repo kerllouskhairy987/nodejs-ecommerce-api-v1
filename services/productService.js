@@ -1,4 +1,7 @@
-const ProductModel = require("../models/productModel");
+const { v4: uuidv4 } = require("uuid");
+const sharp = require("sharp");
+const asyncHandler = require("express-async-handler");
+const multer = require("multer");
 const {
   deleteOne,
   updateOne,
@@ -6,6 +9,58 @@ const {
   getOne,
   getAll,
 } = require("./handlersFactory");
+const ProductModel = require("../models/productModel");
+const ApiError = require("../utils/apiError");
+
+const storage = multer.memoryStorage();
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(new ApiError("Only images are allowed", 400), false);
+  }
+};
+const upload = multer({ storage, fileFilter });
+
+// TODO: Middleware for uploading product images
+exports.uploadProductImages = upload.fields([
+  { name: "imageCover", maxCount: 1 },
+  { name: "images", maxCount: 10 },
+]);
+
+// TODO: Middleware for resizing product images
+exports.resizeProductImages = asyncHandler(async (req, res, next) => {
+  // 1- image processing for image cover
+  if (req.files.imageCover) {
+    const imageCoverFilename = `product-${uuidv4()}-${Date.now()}-cover.jpeg`;
+    await sharp(req.files.imageCover[0].buffer)
+      .resize(2000, 1333, {
+        fit: "contain",
+        background: { r: 255, g: 255, b: 255, alpha: 1 },
+      })
+      .jpeg({ quality: 90 })
+      .toFile(`uploads/products/${imageCoverFilename}`);
+
+    req.body.imageCover = imageCoverFilename;
+  }
+  // 2- image processing for images
+  if (req.files.images) {
+    req.body.images = [];
+    await Promise.all(
+      req.files.images.map(async (file, index) => {
+        const filename = `product-${uuidv4()}-${Date.now()}-${index + 1}.jpeg`;
+        await sharp(file.buffer)
+          .resize(1200, 800)
+          .jpeg({ quality: 95 })
+          .toFile(`uploads/products/${filename}`);
+
+        // save image in Database
+        req.body.images.push(filename);
+      }),
+    );
+  }
+  next();
+});
 
 // @desc    post a new product
 // @route   POST /api/v1/products

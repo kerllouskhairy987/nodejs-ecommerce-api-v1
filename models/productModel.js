@@ -84,6 +84,30 @@ productSchema.pre(/^find/, function () {
   });
 });
 
+// TODO: image URL
+const imageUrlHandler = (doc) => {
+  if (doc.imageCover) {
+    const imageUrl = `${process.env.BASE_URL}/products/${doc.imageCover}`;
+    doc.imageCover = imageUrl;
+  }
+  if (doc.images) {
+    const imageList = [];
+    doc.images.forEach((image) => {
+      const imageUrl = `${process.env.BASE_URL}/products/${image}`;
+      imageList.push(imageUrl);
+    });
+    doc.images = imageList;
+  }
+};
+// findOne, findAll and Update
+productSchema.post("init", (doc) => {
+  imageUrlHandler(doc);
+});
+// create
+productSchema.post("save", (doc) => {
+  imageUrlHandler(doc);
+});
+
 // ** 3- make modal
 const ProductModel = mongoose.model("Product", productSchema);
 
