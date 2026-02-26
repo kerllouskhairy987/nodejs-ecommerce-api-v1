@@ -17,6 +17,7 @@ const categoryRoute = require("./router/categoryRoute");
 const subCategoryRoute = require("./router/subCategoryRoute");
 const brandRoute = require("./router/brandRoute");
 const productRoute = require("./router/productRoute");
+const userRoute = require("./router/userRoute");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -46,6 +47,7 @@ app.use("/api/v1/categories", categoryRoute);
 app.use("/api/v1/subcategories", subCategoryRoute);
 app.use("/api/v1/brands", brandRoute);
 app.use("/api/v1/products", productRoute);
+app.use("/api/v1/users", userRoute);
 
 // ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {

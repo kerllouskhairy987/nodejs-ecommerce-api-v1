@@ -1,0 +1,69 @@
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "name is required"],
+      trim: true,
+      minlength: [3, "name must be at least 3 characters"],
+      maxlength: [32, "name must be at most 32 characters"],
+    },
+    slug: {
+      type: String,
+      lowercase: true,
+    },
+    email: {
+      type: String,
+      required: [true, "email is required"],
+      trim: true,
+      unique: [true, "email must be unique"],
+      lowercase: true,
+    },
+    phone: {
+      type: String,
+      unique: [true, "phone number must be unique"],
+      sparse: true, // to make it optional [do not duplicate the key in db]
+      trim: true,
+    },
+    profileImg: String,
+    password: {
+      type: String,
+      required: [true, "password is required"],
+      trim: true,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
+    active: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true },
+);
+
+// TODO: image URL
+const imageUrlHandler = (doc) => {
+  if (doc.profileImg) {
+    console.log("first");
+    const imageUrl = `${process.env.BASE_URL}/users/${doc.profileImg}`;
+    doc.profileImg = imageUrl;
+  }
+};
+
+// findOne, findAll and Update
+userSchema.post("init", (doc) => {
+  console.log("docllllll", doc);
+  imageUrlHandler(doc);
+});
+// create
+userSchema.post("save", (doc) => {
+  imageUrlHandler(doc);
+});
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;
