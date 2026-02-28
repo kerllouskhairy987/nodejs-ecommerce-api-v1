@@ -1,12 +1,12 @@
 const { check } = require("express-validator");
 const { default: slugify } = require("slugify");
-const bcrypt = require("bcryptjs");
-
 const validateMiddleware = require("../../middlewares/categoryMiddleware");
 const User = require("../../models/userModel");
 const ApiError = require("../apiError");
 
-// @desc   validators for create user routes
+/**
+ * @desc   validators for create user routes
+ */
 exports.createUserValidator = [
   check("name")
     .notEmpty()
@@ -87,7 +87,9 @@ exports.getUserValidator = [
   validateMiddleware,
 ];
 
-// @desc    validators for update user routes
+/**
+ * @desc    validators for update user routes
+ */
 exports.updateUserValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
 
@@ -134,23 +136,25 @@ exports.updateUserValidator = [
   validateMiddleware,
 ];
 
-// @desc    validator for update user password
+/**
+ * @desc    validator for update user password
+ */
 exports.updateUserPasswordValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
 
-  check("currentPassword")
-    .notEmpty()
-    .withMessage("current password is required")
-    .custom(async (currentPassword, { req }) => {
-      const user = await User.findById(req.params.id);
-      if (!user)
-        throw new ApiError(`no user found for this id ${req.params.id}`, 404);
+  // check("currentPassword")
+  //   .notEmpty()
+  //   .withMessage("current password is required")
+  //   .custom(async (currentPassword, { req }) => {
+  //     const user = await User.findById(req.params.id);
+  //     if (!user)
+  //       throw new ApiError(`no user found for this id ${req.params.id}`, 404);
 
-      const hash = user.password;
-      const isCorrectPassword = await bcrypt.compare(currentPassword, hash);
-      if (!isCorrectPassword)
-        throw new ApiError("current password is incorrect", 400);
-    }),
+  //     const hash = user.password;
+  //     const isCorrectPassword = await bcrypt.compare(currentPassword, hash);
+  //     if (!isCorrectPassword)
+  //       throw new ApiError("current password is incorrect", 400);
+  //   }),
 
   check("password")
     .notEmpty()
@@ -178,7 +182,9 @@ exports.updateUserPasswordValidator = [
   validateMiddleware,
 ];
 
-// @desc     validators for delete user routes
+/**
+ * @desc     validators for delete user routes
+ */
 exports.deleteUserValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
   validateMiddleware,
