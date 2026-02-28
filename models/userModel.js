@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const bcrypt = require("bcryptjs");
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -45,6 +47,14 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// TODO: Hash password on create
+userSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+
+  // hashing user password
+  this.password = await bcrypt.hash(this.password, 12);
+});
+
 // TODO: image URL
 const imageUrlHandler = (doc) => {
   if (doc.profileImg) {
@@ -56,7 +66,6 @@ const imageUrlHandler = (doc) => {
 
 // findOne, findAll and Update
 userSchema.post("init", (doc) => {
-  console.log("docllllll", doc);
   imageUrlHandler(doc);
 });
 // create
