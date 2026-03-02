@@ -1,9 +1,11 @@
+const crypto = require("crypto");
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const User = require("../models/userModel");
 const ApiError = require("../utils/apiError");
+const sendEmail = require("../utils/sendEmail");
 
 const generateToken = (payload) => {
   const token = jwt.sign({ userId: payload }, process.env.JWT_SECRET, {
@@ -124,3 +126,53 @@ exports.allowedTo = (...roles) =>
 
     next();
   });
+
+/**
+ * @desc    forgot password
+ * @route   POST /api/v1/auth/forgot-password
+ * @access  public
+ */
+exports.forgotPassword = asyncHandler(async (req, res, next) => {
+  // 1) Get User By Email
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    return next(
+      new ApiError(`There is no user with this email ${req.body.email}`, 404),
+    );
+  }
+
+  // 2) if user exist Generate hash Random 6 digit code and save it in DB
+  const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+  const hashedResetCode = crypto
+    .createHash("sha256")
+    .update(resetCode)
+    .digest("hex");
+
+  // save in db
+  user.passwordResetCode = hashedResetCode;
+  user.passwordResetExpires = Date.now() + 10 * 60 * 1000; // 10 min
+  user.passwordResetVerified = false;
+  await user.save();
+
+  // 3) Send reset code to user email
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "Reset Password",
+      resetCode,
+    });
+  } catch (error) {
+    user.passwordResetCode = undefined;
+    user.passwordResetExpires = undefined;
+    user.passwordResetVerified = undefined;
+    await user.save();
+
+    return next(new ApiError("Failed to send email", 500));
+  }
+
+  res.status(200).json({
+    status: "success",
+    message: "Reset code sent to your email, this code will expire in 10 min",
+  });
+});
