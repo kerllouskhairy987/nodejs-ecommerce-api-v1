@@ -32,22 +32,22 @@ exports.resizeUserImage = asyncHandler(async (req, res, next) => {
 
 // @desc      Create User
 // @route     POST /api/v1/users
-// @access    Private
+// @access    Private/Admin-Manager
 exports.postUser = createOne(User);
 
 // @desc      Get all users
 // @route     GET /api/v1/users
-// @access    Private
+// @access    Private/Admin
 exports.getUsers = getAll(User);
 
 // @desc     Get Specific user
 // @route    GET /api/v1/users/:id
-// @access   Private
+// @access   Private/Admin
 exports.getUser = getOne(User);
 
 // @desc    Update Specific User
 // @route   PUT /api/v1/users/:id
-// @access  Private
+// @access  Private/Admin
 exports.updateUser = asyncHandler(async (req, res, next) => {
   // delete password if user want to update password
   if (req.body && req.body.password) {
@@ -75,11 +75,14 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
 
 // @desc    Update Specific User Password
 // @route   PUT /api/v1/users/change-password/:id
-// @access  Private
+// @access  Private/Admin
 exports.updateUserPassword = asyncHandler(async (req, res, next) => {
   const document = await User.findByIdAndUpdate(
     req.params.id,
-    { password: await bcrypt.hash(req.body.password, 12) },
+    {
+      password: await bcrypt.hash(req.body.password, 12),
+      passwordChangedAt: Date.now(),
+    },
     {
       new: true,
       runValidators: true,
@@ -101,5 +104,5 @@ exports.updateUserPassword = asyncHandler(async (req, res, next) => {
 
 // @desc    Delete Specific User
 // @route   DELETE /api/v1/users/:id
-// @access  Private
+// @access  Private/Admin
 exports.deleteUser = deleteOne(User);

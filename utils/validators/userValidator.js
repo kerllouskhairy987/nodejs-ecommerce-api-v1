@@ -1,5 +1,6 @@
 const { check } = require("express-validator");
 const { default: slugify } = require("slugify");
+const bcrypt = require("bcryptjs");
 const validateMiddleware = require("../../middlewares/categoryMiddleware");
 const User = require("../../models/userModel");
 const ApiError = require("../apiError");
@@ -142,19 +143,19 @@ exports.updateUserValidator = [
 exports.updateUserPasswordValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
 
-  // check("currentPassword")
-  //   .notEmpty()
-  //   .withMessage("current password is required")
-  //   .custom(async (currentPassword, { req }) => {
-  //     const user = await User.findById(req.params.id);
-  //     if (!user)
-  //       throw new ApiError(`no user found for this id ${req.params.id}`, 404);
+  check("currentPassword")
+    .notEmpty()
+    .withMessage("current password is required")
+    .custom(async (currentPassword, { req }) => {
+      const user = await User.findById(req.params.id);
+      if (!user)
+        throw new ApiError(`no user found for this id ${req.params.id}`, 404);
 
-  //     const hash = user.password;
-  //     const isCorrectPassword = await bcrypt.compare(currentPassword, hash);
-  //     if (!isCorrectPassword)
-  //       throw new ApiError("current password is incorrect", 400);
-  //   }),
+      const hash = user.password;
+      const isCorrectPassword = await bcrypt.compare(currentPassword, hash);
+      if (!isCorrectPassword)
+        throw new ApiError("current password is incorrect", 400);
+    }),
 
   check("password")
     .notEmpty()
