@@ -73,9 +73,11 @@ exports.updateUser = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Update Specific User Password
-// @route   PUT /api/v1/users/change-password/:id
-// @access  Private/Admin
+/**
+ * @desc    Update Specific User Password
+ * @route   PUT /api/v1/users/change-password/:id
+ * @access  Private/Admin
+ */
 exports.updateUserPassword = asyncHandler(async (req, res, next) => {
   const document = await User.findByIdAndUpdate(
     req.params.id,
@@ -102,7 +104,19 @@ exports.updateUserPassword = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc    Delete Specific User
-// @route   DELETE /api/v1/users/:id
-// @access  Private/Admin
+/**
+ * @desc    Delete Specific User
+ * @route   DELETE /api/v1/users/:id
+ * @access  Private/Admin
+ */
 exports.deleteUser = deleteOne(User);
+
+/**
+ * @desc    ably req.params === req.user._id
+ * @route   GET  /api/v1/users/get-me
+ * @access  Private / protected
+ */
+exports.ablyUserIdToReqParamsId = asyncHandler(async (req, res, next) => {
+  req.params.id = req.user._id;
+  next();
+});

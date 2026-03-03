@@ -8,6 +8,7 @@ const {
   uploadUserImage,
   resizeUserImage,
   updateUserPassword,
+  ablyUserIdToReqParamsId,
 } = require("../services/userService");
 const {
   createUserValidator,
@@ -20,33 +21,25 @@ const { allowedTo, protect } = require("../services/authService");
 
 const router = express.Router();
 
+// for user
+router.route("/get-me").get(protect, ablyUserIdToReqParamsId, getUser);
+
+// for admin
+router.use(protect, allowedTo("admin"));
+
 router
   .route("/change-password/:id")
   .put(protect, updateUserPasswordValidator, updateUserPassword);
 
 router
   .route("/")
-  .post(
-    protect,
-    allowedTo("admin"),
-    uploadUserImage,
-    resizeUserImage,
-    createUserValidator,
-    postUser,
-  )
-  .get(protect, allowedTo("admin"), getUsers);
+  .post(uploadUserImage, resizeUserImage, createUserValidator, postUser)
+  .get(getUsers);
 
 router
   .route("/:id")
-  .get(protect, allowedTo("admin"), getUserValidator, getUser)
-  .put(
-    protect,
-    allowedTo("admin"),
-    uploadUserImage,
-    resizeUserImage,
-    updateUserValidator,
-    updateUser,
-  )
-  .delete(protect, allowedTo("admin"), deleteUserValidator, deleteUser);
+  .get(getUserValidator, getUser)
+  .put(uploadUserImage, resizeUserImage, updateUserValidator, updateUser)
+  .delete(deleteUserValidator, deleteUser);
 
 module.exports = router;

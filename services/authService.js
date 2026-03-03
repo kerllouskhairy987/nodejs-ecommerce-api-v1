@@ -128,7 +128,7 @@ exports.allowedTo = (...roles) =>
   });
 
 /**
- * @desc    forgot password
+ * @desc    forgot password (Step 1 of 3)
  * @route   POST /api/v1/auth/forgot-password
  * @access  public
  */
@@ -174,5 +174,72 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     message: "Reset code sent to your email, this code will expire in 10 min",
+  });
+});
+
+/**
+ * @desc    verify reset password code (Step 2 of 3)
+ * @route   POST /api/v1/auth/reset-password
+ * @access  public
+ */
+exports.verifyResetPasswordCode = asyncHandler(async (req, res, next) => {
+  // 1) get user depend on reset his/him code
+  const hashedResetCode = crypto
+    .createHash("sha256")
+    .update(req.body.resetCode)
+    .digest("hex");
+
+  const user = await User.findOne({
+    passwordResetCode: hashedResetCode,
+    passwordResetExpires: { $gt: Date.now() },
+  });
+
+  if (!user) {
+    return next(new ApiError("Invalid or expired reset code", 400));
+  }
+
+  // 2) reset code is valid and not expired then verify passwordResetVerified
+  user.passwordResetVerified = true;
+  await user.save();
+
+  res.status(200).json({
+    status: "success",
+    message: "Reset code is valid",
+  });
+});
+
+/**
+ * @desc    reset password (Step 3 of 3)
+ * @route   PUT /api/v1/auth/reset-password
+ * @access  public
+ */
+exports.resetPassword = asyncHandler(async (req, res, next) => {
+  // 1) get user depend on email
+  const user = await User.findOne({
+    email: req.body.email,
+  });
+
+  if (!user) {
+    return next(new ApiError("There is no user with this email", 404));
+  }
+
+  // 2) check if reset code is verified
+  if (!user.passwordResetVerified) {
+    return next(new ApiError("Reset code is not verified", 400));
+  }
+
+  // 3) update password
+  user.password = req.body.newPassword;
+  user.passwordResetCode = undefined;
+  user.passwordResetExpires = undefined;
+  user.passwordResetVerified = undefined;
+  await user.save();
+
+  // 3) generate new token
+  const token = generateToken(user._id);
+
+  res.status(200).json({
+    status: "success",
+    token,
   });
 });

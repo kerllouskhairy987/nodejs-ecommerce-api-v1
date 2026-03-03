@@ -83,3 +83,28 @@ exports.loginValidator = [
 
   validateMiddleware,
 ];
+
+/**
+ * @desc   validators for reset password
+ */
+exports.resetPasswordValidator = [
+  check("email")
+    .notEmpty()
+    .withMessage("email is required")
+    .isEmail()
+    .withMessage("email is invalid")
+    .toLowerCase()
+    .trim(),
+
+  check("newPassword")
+    .notEmpty()
+    .withMessage("newPassword is required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/,
+    )
+    .withMessage(
+      "Password must be at least 8 characters and include uppercase, lowercase, number and special character",
+    ),
+
+  validateMiddleware,
+];
