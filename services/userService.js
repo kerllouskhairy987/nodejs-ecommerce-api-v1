@@ -187,3 +187,57 @@ exports.updateUserDataWithoutPasswordAndRole = asyncHandler(
     });
   },
 );
+
+/**
+ * @desc    deactivate user account
+ * @route   DELETE  /api/v1/users/deactivate-account
+ * @access  Private / protected
+ */
+exports.deactivateUserAccount = asyncHandler(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    { _id: req.user._id },
+    { active: false },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  if (!user) {
+    return next(
+      new ApiError(`user not found with this id ${req.user._id}`, 404),
+    );
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: user,
+  });
+});
+
+/**
+ * @desc   activate user account
+ * @route  PUT  /api/v1/users/activate-account
+ * @access  Private / protected
+ */
+exports.activateUserAccount = asyncHandler(async (req, res, next) => {
+  const user = await User.findByIdAndUpdate(
+    { _id: req.user._id },
+    { active: true },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  if (!user) {
+    return next(
+      new ApiError(`user not found with this id ${req.user._id}`, 404),
+    );
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: user,
+  });
+});

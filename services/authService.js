@@ -82,6 +82,15 @@ exports.protect = asyncHandler(async (req, res, next) => {
       ),
     );
   }
+  // check user is active
+  if (!user.active) {
+    return next(
+      new ApiError(
+        "User is not active, please activate your account or contact admin",
+        401,
+      ),
+    );
+  }
 
   // 4) check if password is changed after token is generated or not if changed you must login again
   if (user.passwordChangedAt) {

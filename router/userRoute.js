@@ -11,6 +11,8 @@ const {
   applyUserIdToReqParamsIdInGetUserData,
   updateLoggedInUserPassword,
   updateUserDataWithoutPasswordAndRole,
+  deactivateUserAccount,
+  activateUserAccount,
 } = require("../services/userService");
 const {
   createUserValidator,
@@ -24,6 +26,8 @@ const {
 const { allowedTo, protect } = require("../services/authService");
 
 const router = express.Router();
+
+// -----------------------------------------------------------
 
 // for user
 router.get("/get-me", protect, applyUserIdToReqParamsIdInGetUserData, getUser);
@@ -43,6 +47,10 @@ router.put(
   updateLoggedInUserDataValidator,
   updateUserDataWithoutPasswordAndRole,
 );
+
+router.put("/activate-account", protect, activateUserAccount);
+
+router.delete("/deactivate-account", protect, deactivateUserAccount);
 
 // -----------------------------------------------------------------
 
