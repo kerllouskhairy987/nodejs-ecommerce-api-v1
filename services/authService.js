@@ -6,13 +6,8 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
 const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
+const generateToken = require("../utils/generateToken");
 
-const generateToken = (payload) => {
-  const token = jwt.sign({ userId: payload }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-  return token;
-};
 /**
  * @desc    signup
  * @route   POST /api/v1/auth/signup
@@ -88,7 +83,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
     );
   }
 
-  // check if password is changed after token is generated or not if changed you must login again
+  // 4) check if password is changed after token is generated or not if changed you must login again
   if (user.passwordChangedAt) {
     const changedTimestamp = parseInt(
       user.passwordChangedAt.getTime() / 1000,

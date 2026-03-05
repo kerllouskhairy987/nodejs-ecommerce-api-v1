@@ -6,7 +6,7 @@ const User = require("../../models/userModel");
 const ApiError = require("../apiError");
 
 /**
- * @desc   validators for create user routes
+ * @desc   validators for create user routes (for admin only)
  */
 exports.createUserValidator = [
   check("name")
@@ -82,14 +82,14 @@ exports.createUserValidator = [
   validateMiddleware,
 ];
 
-// @desc   validators for get user routes
+// @desc   validators for get user routes (for admin only)
 exports.getUserValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
   validateMiddleware,
 ];
 
 /**
- * @desc    validators for update user routes
+ * @desc    validators for update user routes (for admin only)
  */
 exports.updateUserValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
@@ -138,7 +138,7 @@ exports.updateUserValidator = [
 ];
 
 /**
- * @desc    validator for update user password
+ * @desc    validator for update user password (for admin only)
  */
 exports.updateUserPasswordValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
@@ -184,9 +184,86 @@ exports.updateUserPasswordValidator = [
 ];
 
 /**
- * @desc     validators for delete user routes
+ * @desc     validators for delete user routes (for admin only)
  */
 exports.deleteUserValidator = [
   check("id").isMongoId().withMessage("Invalid user ID format"),
+  validateMiddleware,
+];
+
+// ------------------------------------------------------------------------------------------
+/**
+ * @desc    update logged in user password (for logged in user only)
+ */
+exports.updateLoggedInUserPasswordValidator = [
+  check("password")
+    .notEmpty()
+    .withMessage("password is required")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/,
+    )
+    .withMessage(
+      "Password must be at least 8 characters and include uppercase, lowercase, number and special character",
+    )
+    .custom((password, { req }) => {
+      if (password !== req.body.passwordConfirm) {
+        throw new ApiError(
+          "password and passwordConfirm must be the same",
+          400,
+        );
+      }
+      return true; // to continue
+    }),
+
+  check("passwordConfirm")
+    .notEmpty()
+    .withMessage("passwordConfirm is required"),
+
+  validateMiddleware,
+];
+
+/**
+ * @desc    update logged in user data without password (for logged in user only)
+ */
+exports.updateLoggedInUserDataValidator = [
+  check("name")
+    .optional()
+    .isLength({ min: 3, max: 32 })
+    .withMessage("name must be between 3 and 32 characters long")
+    .trim()
+    // TODO: update slugify if name updated
+    .custom((val, { req }) => {
+      if (!val) return false;
+      req.body.slug = slugify(val);
+      return true;
+    }),
+
+  check("email")
+    .optional()
+    .notEmpty()
+    .withMessage("email is required")
+    .isEmail()
+    .withMessage("email is invalid")
+    .toLowerCase()
+    .trim()
+    // TODO: check if email exists in DB
+    .custom(async (val) => {
+      const email = await User.findOne({ email: val });
+      if (email) throw new Error("email already exists");
+    }),
+
+  check("phone")
+    .optional()
+    .isMobilePhone(["ar-EG", "ar-SA"])
+    .withMessage("phone number must belong to Egypt or Saudi Arabia"),
+
+  check("profileImg").optional(),
+
+  check("active")
+    .optional()
+    .isBoolean()
+    .withMessage("active must be true or false")
+    .default(true),
+
   validateMiddleware,
 ];

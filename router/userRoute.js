@@ -8,7 +8,9 @@ const {
   uploadUserImage,
   resizeUserImage,
   updateUserPassword,
-  ablyUserIdToReqParamsId,
+  applyUserIdToReqParamsIdInGetUserData,
+  updateLoggedInUserPassword,
+  updateUserDataWithoutPasswordAndRole,
 } = require("../services/userService");
 const {
   createUserValidator,
@@ -16,13 +18,33 @@ const {
   deleteUserValidator,
   updateUserValidator,
   updateUserPasswordValidator,
+  updateLoggedInUserPasswordValidator,
+  updateLoggedInUserDataValidator,
 } = require("../utils/validators/userValidator");
 const { allowedTo, protect } = require("../services/authService");
 
 const router = express.Router();
 
 // for user
-router.route("/get-me").get(protect, ablyUserIdToReqParamsId, getUser);
+router.get("/get-me", protect, applyUserIdToReqParamsIdInGetUserData, getUser);
+
+router.put(
+  "/change-my-password",
+  protect,
+  updateLoggedInUserPasswordValidator,
+  updateLoggedInUserPassword,
+);
+
+router.put(
+  "/change-my-data",
+  protect,
+  uploadUserImage,
+  resizeUserImage,
+  updateLoggedInUserDataValidator,
+  updateUserDataWithoutPasswordAndRole,
+);
+
+// -----------------------------------------------------------------
 
 // for admin
 router.use(protect, allowedTo("admin"));

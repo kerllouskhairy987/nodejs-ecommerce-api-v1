@@ -8,6 +8,7 @@ const { uploadSingleImage } = require("../middlewares/uploadImagesMiddleware");
 const { createOne, getAll, getOne, deleteOne } = require("./handlersFactory");
 
 const ApiError = require("../utils/apiError");
+const generateToken = require("../utils/generateToken");
 
 // TODO: Middleware for uploading user image
 exports.uploadUserImage = uploadSingleImage("profileImg");
@@ -112,11 +113,77 @@ exports.updateUserPassword = asyncHandler(async (req, res, next) => {
 exports.deleteUser = deleteOne(User);
 
 /**
- * @desc    ably req.params === req.user._id
+ * @desc    apply req.params.id === req.user._id
  * @route   GET  /api/v1/users/get-me
  * @access  Private / protected
  */
-exports.ablyUserIdToReqParamsId = asyncHandler(async (req, res, next) => {
-  req.params.id = req.user._id;
-  next();
+exports.applyUserIdToReqParamsIdInGetUserData = asyncHandler(
+  async (req, res, next) => {
+    req.params.id = req.user._id;
+    next();
+  },
+);
+
+/**
+ * @desc    update user password
+ * @route   PUT  /api/v1/users/update-my-password
+ * @access  Private / protected
+ */
+exports.updateLoggedInUserPassword = asyncHandler(async (req, res, next) => {
+  // 1) update user password based on user payload (req.user._id)
+  const user = await User.findByIdAndUpdate(
+    { _id: req.user._id },
+    {
+      password: await bcrypt.hash(req.body.password, 12),
+      passwordChangedAt: Date.now(),
+    },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  // 2) generate token
+  const token = generateToken(user._id);
+
+  res.status(200).json({
+    status: "success",
+    data: user,
+    token,
+  });
 });
+
+/**
+ * @desc    update user data (without password and role)
+ * @route   PUT  /api/v1/users/update-my-data
+ * @access  Private / protected
+ */
+exports.updateUserDataWithoutPasswordAndRole = asyncHandler(
+  async (req, res, next) => {
+    if (req.body && req.body.password) {
+      delete req.body.password;
+      delete req.body.passwordConfirm;
+    }
+
+    if (req.body && req.body.role) {
+      delete req.body.role;
+    }
+
+    console.log(req.body);
+    const user = await User.findByIdAndUpdate({ _id: req.user._id }, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!user) {
+      return next(
+        new ApiError(`user not found with this id ${req.user._id}`, 404),
+      );
+    }
+
+    res.status(200).json({
+      status: "success",
+      data: user,
+    });
+  },
+);
