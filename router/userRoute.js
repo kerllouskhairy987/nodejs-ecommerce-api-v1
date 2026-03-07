@@ -23,7 +23,11 @@ const {
   updateLoggedInUserPasswordValidator,
   updateLoggedInUserDataValidator,
 } = require("../utils/validators/userValidator");
-const { allowedTo, protect } = require("../services/authService");
+const {
+  allowedTo,
+  protect,
+  protectForActivateUserAccount,
+} = require("../services/authService");
 
 const router = express.Router();
 
@@ -48,7 +52,11 @@ router.put(
   updateUserDataWithoutPasswordAndRole,
 );
 
-router.put("/activate-account", protect, activateUserAccount);
+router.put(
+  "/activate-account",
+  protectForActivateUserAccount,
+  activateUserAccount,
+);
 
 router.delete("/deactivate-account", protect, deactivateUserAccount);
 

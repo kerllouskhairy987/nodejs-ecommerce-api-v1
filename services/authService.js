@@ -111,6 +111,61 @@ exports.protect = asyncHandler(async (req, res, next) => {
 });
 
 /**
+ * @desc    Protect for activate User Routes Make Sure That User Logged In (authenticated)
+ * @route   POST /api/v1/[anyRoute]
+ * @access  Private
+ */
+exports.protectForActivateUserAccount = asyncHandler(async (req, res, next) => {
+  // 1) check token exists, if exist get it
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+  if (!token) {
+    return next(
+      new ApiError(
+        "You are not logged in, please log in first to get access",
+        401,
+      ),
+    );
+  }
+
+  // 2) verify token(invalid ,expired)
+  const decoded = await jwt.verify(token, process.env.JWT_SECRET);
+
+  // 3) check if user exist
+  const user = await User.findById(decoded.userId);
+  if (!user) {
+    return next(
+      new ApiError(
+        "The user belonging to this token does no longer exist",
+        401,
+      ),
+    );
+  }
+
+  // 4) check if password is changed after token is generated or not if changed you must login again
+  if (user.passwordChangedAt) {
+    const changedTimestamp = parseInt(
+      user.passwordChangedAt.getTime() / 1000,
+      10,
+    );
+    // password changed after token is generated
+    if (decoded.iat < changedTimestamp) {
+      return next(
+        new ApiError("User recently changed password, please login again", 401),
+      );
+    }
+  }
+
+  req.user = user; // use it in authorization
+  next();
+});
+
+/**
  * @desc    check if user is admin or manager (authorization)
  * @route   POST /api/v1/[anyRoute]
  * @access  Private
@@ -121,10 +176,7 @@ exports.allowedTo = (...roles) =>
     console.log(req.user);
     if (!roles.includes(req.user.role)) {
       return next(
-        new ApiError(
-          "You are not allowed to access this route, only admin and manager can access this route",
-          403,
-        ),
+        new ApiError("You are not allowed to access this route.", 403),
       );
     }
 

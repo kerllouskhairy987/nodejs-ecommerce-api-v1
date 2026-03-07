@@ -87,8 +87,6 @@ exports.getAll = (Model) =>
       queryObj.category = req.params.categoryId;
     }
 
-    console.log(req.query);
-
     // TODO: 4) Build Mongoose Query
     const countDocuments = await Model.countDocuments();
     const apiFeatures = new ApiFeatures(Model.find(), queryObj)

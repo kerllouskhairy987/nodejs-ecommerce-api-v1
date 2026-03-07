@@ -102,7 +102,6 @@ class ApiFeatures {
         this.queryString.sort.toLowerCase() !== "desc")
     ) {
       const sort = this.queryString.sort.split(",").join(" ");
-      console.log("sort", sort);
       this.mongooseQuery = this.mongooseQuery.sort(sort);
     } else {
       const sort =

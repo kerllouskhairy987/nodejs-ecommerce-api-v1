@@ -221,6 +221,8 @@ exports.deactivateUserAccount = asyncHandler(async (req, res, next) => {
  * @access  Private / protected
  */
 exports.activateUserAccount = asyncHandler(async (req, res, next) => {
+  console.log("first");
+  console.log(req.user._id);
   const user = await User.findByIdAndUpdate(
     { _id: req.user._id },
     { active: true },
