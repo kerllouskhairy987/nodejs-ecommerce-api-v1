@@ -22,6 +22,17 @@ exports.getReviews = getAll(ReviewModel);
 exports.getReview = getOne(ReviewModel);
 
 /**
+ * @desc    Add productId to body when create review on product [nested route]
+ * @route   POST /api/v1/products/:productId/reviews
+ * @access  private/protect/User
+ */
+exports.setProductIdAndUserIdToBody = (req, res, next) => {
+  if (!req.body.product) req.body.product = req.params.productId;
+  if (!req.body.user) req.body.user = req.user._id.toString();
+  next();
+};
+
+/**
  * @desc   Create Review
  * @route  POST /api/v1/reviews
  * @access  Private/Protect/User

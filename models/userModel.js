@@ -60,8 +60,7 @@ userSchema.pre("save", async function () {
 
 // TODO: image URL
 const imageUrlHandler = (doc) => {
-  if (doc.profileImg) {
-    console.log("first");
+  if (doc.profileImg && !doc.profileImg.startsWith("http")) {
     const imageUrl = `${process.env.BASE_URL}/users/${doc.profileImg}`;
     doc.profileImg = imageUrl;
   }
@@ -69,10 +68,6 @@ const imageUrlHandler = (doc) => {
 
 // findOne, findAll and Update
 userSchema.post("init", (doc) => {
-  imageUrlHandler(doc);
-});
-// create
-userSchema.post("save", (doc) => {
   imageUrlHandler(doc);
 });
 

@@ -18,6 +18,6 @@ router.post("/signup", signupValidator, signup);
 router.post("/login", loginValidator, login);
 router.post("/forgot-password", forgotPassword);
 router.post("/verify-reset-code", verifyResetPasswordCode);
-router.route("/reset-password").put(resetPasswordValidator, resetPassword);
+router.put("/reset-password", resetPasswordValidator, resetPassword);
 
 module.exports = router;

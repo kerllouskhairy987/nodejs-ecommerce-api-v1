@@ -1,5 +1,14 @@
 {
-  "cSpell.words": ["ecommerce", "maxlength", "unhandling", "uuidv", "التقيل"],
+  "cSpell.words": [
+    "ecommerce",
+    "maxlength",
+    "unhandling",
+    "uuidv",
+    "virtuals",
+    "التقيل",
+    "المرتبط",
+    "الموديل"
+  ],
   "separators.enabledFoldingRanges": ["Comments", "Imports", "Regions"],
   "separators.enabledSymbols": [
     "Classes",

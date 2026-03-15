@@ -228,7 +228,7 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   }
 
   res.status(200).json({
-    status: "success",
+    success: true,
     message: "Reset code sent to your email, this code will expire in 10 min",
   });
 });
@@ -259,7 +259,7 @@ exports.verifyResetPasswordCode = asyncHandler(async (req, res, next) => {
   await user.save();
 
   res.status(200).json({
-    status: "success",
+    success: true,
     message: "Reset code is valid",
   });
 });
@@ -291,11 +291,11 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   user.passwordResetVerified = undefined;
   await user.save();
 
-  // 3) generate new token
+  // 4) generate new token
   const token = generateToken(user._id);
 
   res.status(200).json({
-    status: "success",
+    success: true,
     token,
   });
 });

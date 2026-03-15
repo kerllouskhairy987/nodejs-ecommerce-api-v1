@@ -1,3 +1,8 @@
+/**
+ * Constructor for ApiFeatures class
+ * @param {mongoose.Query} mongooseQuery - Mongoose Query object
+ * @param {Object} queryString - Query string object
+ */
 class ApiFeatures {
   constructor(mongooseQuery, queryString) {
     this.mongooseQuery = mongooseQuery;
@@ -98,8 +103,8 @@ class ApiFeatures {
   sort() {
     if (
       this.queryString.sort &&
-      (this.queryString.sort.toLowerCase() !== "asc" ||
-        this.queryString.sort.toLowerCase() !== "desc")
+      this.queryString.sort.toLowerCase() !== "asc" &&
+      this.queryString.sort.toLowerCase() !== "desc"
     ) {
       const sort = this.queryString.sort.split(",").join(" ");
       this.mongooseQuery = this.mongooseQuery.sort(sort);

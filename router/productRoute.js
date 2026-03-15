@@ -15,8 +15,17 @@ const {
   resizeProductImages,
 } = require("../services/productService");
 const { allowedTo, protect } = require("../services/authService");
+const reviewRoute = require("./reviewRoute");
 
 const router = express.Router();
+
+/**
+ * @desc     nested route for get all reviews on specific product by id OR create review on specific product OR get specific review on specific product
+ * @route    GET /api/v1/products/:productId/reviews
+ * @method   POST OR GET
+ * @access   public
+ */
+router.use("/:productId/reviews", reviewRoute);
 
 // @route   /api/v1/products/
 router

@@ -120,10 +120,10 @@ exports.getProducts = getAll(ProductModel);
 //   });
 // });
 
-// @desc    Get a single product by id
+// @desc    Get a single product by id && populate reviews
 // @route   GET /api/v1/products/:id
 // @access  Public
-exports.getProduct = getOne(ProductModel);
+exports.getProduct = getOne(ProductModel, "reviews");
 
 // @desc    Update a product by id
 // @route   PUT /api/v1/products/:id

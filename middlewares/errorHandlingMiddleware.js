@@ -1,5 +1,3 @@
-const ApiError = require("../utils/apiError");
-
 /**
  * @desc    send error for development
  */

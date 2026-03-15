@@ -17,7 +17,7 @@ const reviewSchema = mongoose.Schema(
       required: [true, "User is required"],
     },
     product: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId, // mongoose reference
       ref: "Product",
       required: [true, "Product is required"],
     },
@@ -32,7 +32,7 @@ reviewSchema.index({ title: "text" });
 reviewSchema.pre(/^find/, function () {
   this.populate({
     path: "user",
-    select: "name -_id",
+    select: "name profileImg",
   });
 });
 

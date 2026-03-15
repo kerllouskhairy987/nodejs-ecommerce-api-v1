@@ -56,12 +56,20 @@ exports.createOne = (Model) =>
     });
   });
 
-// @desc    get one document
-// @route   GET /api/v1/:Model/:id
-// @access  Public
-exports.getOne = (Model) =>
+/**
+ * @desc    get one document by id
+ * @route   GET /api/v1/:Model/:id
+ * @access  public
+ * @params  Model[required] - populateOptions[optional]
+ */
+exports.getOne = (Model, populationOptions) =>
   asyncHandler(async (req, res, next) => {
-    const document = await Model.findById(req.params.id);
+    // 1) Build query
+    let query = Model.findById(req.params.id);
+    if (populationOptions) query = query.populate(populationOptions);
+
+    // 2) Execute query
+    const document = await query;
 
     if (!document) {
       return next(
@@ -83,9 +91,10 @@ exports.getAll = (Model) =>
   asyncHandler(async (req, res) => {
     // TODO: --> get sub categories by category
     const queryObj = { ...req.query };
-    if (req.params.categoryId) {
-      queryObj.category = req.params.categoryId;
-    }
+    // nested route for category and sub category
+    if (req.params.categoryId) queryObj.category = req.params.categoryId;
+    // nested route for product and reviews
+    if (req.params.productId) queryObj.product = req.params.productId;
 
     // TODO: 4) Build Mongoose Query
     const countDocuments = await Model.countDocuments();

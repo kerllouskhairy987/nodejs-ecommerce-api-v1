@@ -70,7 +70,12 @@ const productSchema = new mongoose.Schema(
       default: 0,
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    // to enable virtual populate
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+  },
 );
 
 // TODO: Text Search Index
@@ -106,6 +111,21 @@ productSchema.post("init", (doc) => {
 // create
 productSchema.post("save", (doc) => {
   imageUrlHandler(doc);
+});
+
+// TODO: Virtual Fields
+/*
+    reviews: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Review",
+      },
+    ],
+*/
+productSchema.virtual("reviews", {
+  ref: "Review", // الموديل المرتبط
+  foreignField: "product", // field من review
+  localField: "_id", // field من product
 });
 
 // ** 3- make modal
