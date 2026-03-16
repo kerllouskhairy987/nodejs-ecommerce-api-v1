@@ -98,7 +98,7 @@ exports.deleteReviewValidator = [
       if (req.user.role === "user") {
         const review = await ReviewModel.findById(id);
         if (!review) throw new ApiError("Review not found", 404);
-        if (req.user._id.toString() !== review.user.toString())
+        if (req.user._id.toString() !== review.user._id.toString())
           throw new ApiError(
             "You are not authorized to delete this review, allow to admin or manager or created by you",
             403,

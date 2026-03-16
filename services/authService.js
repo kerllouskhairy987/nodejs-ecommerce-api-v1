@@ -172,8 +172,8 @@ exports.protectForActivateUserAccount = asyncHandler(async (req, res, next) => {
  */
 exports.allowedTo = (...roles) =>
   asyncHandler(async (req, res, next) => {
-    console.log(roles); // [ 'admin', 'manager' ]
-    console.log(req.user);
+    // console.log(roles); // [ 'admin', 'manager' ]
+    // console.log(req.user);
     if (!roles.includes(req.user.role)) {
       return next(
         new ApiError("You are not allowed to access this route.", 403),

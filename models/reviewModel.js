@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const ProductModel = require("./productModel");
 
 const reviewSchema = mongoose.Schema(
   {
@@ -34,6 +35,50 @@ reviewSchema.pre(/^find/, function () {
     path: "user",
     select: "name profileImg",
   });
+});
+
+// TODO: Aggregation Pipeline to update ratingsQuantity and ratingsAverage
+reviewSchema.statics.calcAverageRatingsAndQuantity = async function (
+  productId,
+) {
+  const result = await this.aggregate([
+    // stage 1 ) product all reviews depend on specific productId
+    { $match: { product: productId } },
+    //  stage 2 ) update ratingsAverage and ratingsQuantity depend on productId
+    {
+      $group: {
+        _id: "product",
+        nRating: { $sum: 1 },
+        avgRating: { $avg: "$ratings" },
+      },
+    },
+  ]);
+
+  console.log(result);
+
+  if (result.length > 0) {
+    // update product with new ratingsAverage and ratingsQuantity
+    await ProductModel.findOneAndUpdate(
+      { _id: productId },
+      {
+        ratingsQuantity: result[0].nRating,
+        ratingsAverage: result[0].avgRating,
+      },
+    );
+  } else {
+    await ProductModel.findOneAndUpdate(
+      { _id: productId },
+      {
+        ratingsQuantity: 0,
+        ratingsAverage: 0,
+      },
+    );
+  }
+};
+
+// TODO: Post Save Hook
+reviewSchema.post("save", async function () {
+  await this.constructor.calcAverageRatingsAndQuantity(this.product);
 });
 
 const ReviewModel = mongoose.model("Review", reviewSchema);
