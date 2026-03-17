@@ -8,10 +8,13 @@ const ApiFeatures = require("../utils/apiFeatures");
 exports.deleteOne = (Model) =>
   asyncHandler(async (req, res, next) => {
     const { id } = req.params;
-    const document = await Model.findByIdAndDelete(id);
+    const document = await Model.findById(id);
     if (!document) {
       return next(new ApiError(`document not found with this id ${id}`, 404));
     }
+
+    // trigger "delete" event when update document to run deleteOne middleware in review model and update ratingsAverage and ratingsQuantity
+    await document.deleteOne();
 
     res.status(200).json({
       success: true,
@@ -34,6 +37,9 @@ exports.updateOne = (Model) =>
         new ApiError(`document not found with this id ${req.params.id}`, 404),
       );
     }
+
+    // trigger "save" event when update document to run save middleware in review model and update ratingsAverage and ratingsQuantity
+    await document.save();
 
     res.status(200).json({
       success: true,

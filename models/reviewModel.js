@@ -17,6 +17,7 @@ const reviewSchema = mongoose.Schema(
       ref: "User",
       required: [true, "User is required"],
     },
+    // parent reference [scalable] {using virtuals populate to get childrens}
     product: {
       type: mongoose.Schema.Types.ObjectId, // mongoose reference
       ref: "Product",
@@ -54,15 +55,13 @@ reviewSchema.statics.calcAverageRatingsAndQuantity = async function (
     },
   ]);
 
-  console.log(result);
-
   if (result.length > 0) {
     // update product with new ratingsAverage and ratingsQuantity
     await ProductModel.findOneAndUpdate(
       { _id: productId },
       {
         ratingsQuantity: result[0].nRating,
-        ratingsAverage: result[0].avgRating,
+        ratingsAverage: Math.round(result[0].avgRating * 10) / 10,
       },
     );
   } else {
@@ -80,6 +79,14 @@ reviewSchema.statics.calcAverageRatingsAndQuantity = async function (
 reviewSchema.post("save", async function () {
   await this.constructor.calcAverageRatingsAndQuantity(this.product);
 });
+// TODO: Post Remove Hook
+reviewSchema.post(
+  "deleteOne",
+  { document: true, query: false },
+  async function () {
+    await this.constructor.calcAverageRatingsAndQuantity(this.product);
+  },
+);
 
 const ReviewModel = mongoose.model("Review", reviewSchema);
 
