@@ -21,6 +21,7 @@ const userRoute = require("./router/userRoute");
 const authRoute = require("./router/authRoute");
 const reviewRoute = require("./router/reviewRoute");
 const wishlistRoute = require("./router/wishlistRoute");
+const addressesRoute = require("./router/addressRoute");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -54,6 +55,7 @@ app.use("/api/v1/users", userRoute);
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/reviews", reviewRoute);
 app.use("/api/v1/wishlist", wishlistRoute);
+app.use("/api/v1/addresses", addressesRoute);
 
 // ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {

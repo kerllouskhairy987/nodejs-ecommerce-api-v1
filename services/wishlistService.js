@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 /**
- * @desc      add product to wishlist
+ * @desc     add product to wishlist
  * @route    POST /api/v1/wishlist
  * @access   private / protected / User only
  */
