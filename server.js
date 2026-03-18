@@ -13,15 +13,7 @@ const dbConnection = require("./config/database");
 const ApiError = require("./utils/apiError");
 const globalErrorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
 // routes
-const categoryRoute = require("./router/categoryRoute");
-const subCategoryRoute = require("./router/subCategoryRoute");
-const brandRoute = require("./router/brandRoute");
-const productRoute = require("./router/productRoute");
-const userRoute = require("./router/userRoute");
-const authRoute = require("./router/authRoute");
-const reviewRoute = require("./router/reviewRoute");
-const wishlistRoute = require("./router/wishlistRoute");
-const addressesRoute = require("./router/addressRoute");
+const mountRoutes = require("./router");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -47,15 +39,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // mount routes
-app.use("/api/v1/categories", categoryRoute);
-app.use("/api/v1/subcategories", subCategoryRoute);
-app.use("/api/v1/brands", brandRoute);
-app.use("/api/v1/products", productRoute);
-app.use("/api/v1/users", userRoute);
-app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/reviews", reviewRoute);
-app.use("/api/v1/wishlist", wishlistRoute);
-app.use("/api/v1/addresses", addressesRoute);
+mountRoutes(app);
 
 // ** 404 unhandling routes middleware (inside express)
 app.use((req, res, next) => {

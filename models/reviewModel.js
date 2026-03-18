@@ -75,11 +75,11 @@ reviewSchema.statics.calcAverageRatingsAndQuantity = async function (
   }
 };
 
-// TODO: Post Save Hook
+// TODO: Post Save Hook [update ratingsAverage and ratingsQuantity]
 reviewSchema.post("save", async function () {
   await this.constructor.calcAverageRatingsAndQuantity(this.product);
 });
-// TODO: Post Remove Hook
+// TODO: Post Remove Hook [update ratingsAverage and ratingsQuantity]
 reviewSchema.post(
   "deleteOne",
   { document: true, query: false },
