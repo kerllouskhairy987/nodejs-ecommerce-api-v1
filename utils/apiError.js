@@ -1,3 +1,9 @@
+/**
+ * @desc    Api Error Class
+ * @access  Public
+ * @params  message, statusCode
+ * @returns ApiError
+ */
 class ApiError extends Error {
   constructor(message, statusCode) {
     super(message);

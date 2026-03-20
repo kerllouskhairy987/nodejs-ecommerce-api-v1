@@ -1,16 +1,3 @@
-// const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-
-// dotenv.config({ path: "../config.env" });
-
-// const dbConnection = () => {
-//   mongoose.connect(process.env.DB_URI).then((success) => {
-//     console.log(`connected: ${success.connection.host}`);
-//   });
-// };
-
-// module.exports = dbConnection;
-
 const mongoose = require("mongoose");
 
 const dbConnection = async () => {
@@ -19,3 +6,13 @@ const dbConnection = async () => {
 };
 
 module.exports = dbConnection;
+
+// const dbConnection = async () => {
+//   mongoose
+//     .connect(process.env.DB_URI)
+//     .then(() => console.log("DB connected"))
+//     .catch((err) => {
+//       console.error("DB Error:", err);
+//       process.exit(1);
+//     });
+// };
