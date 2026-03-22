@@ -101,6 +101,8 @@ exports.getAll = (Model) =>
     if (req.params.categoryId) queryObj.category = req.params.categoryId;
     // nested route for product and reviews
     if (req.params.productId) queryObj.product = req.params.productId;
+    // get all orders for user
+    if (req.user.role === "user") queryObj.user = req.user.id; // queryObj.user = req.user.id; === queryObj = { user: req.user.id };
 
     // TODO: 4) Build Mongoose Query
     const countDocuments = await Model.countDocuments();

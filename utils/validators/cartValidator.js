@@ -68,9 +68,10 @@ exports.updateCartItemQuantityValidator = [
       const cart = await cartModel.findOne({
         cartItems: { $elemMatch: { _id: req.params.cartItemId } },
       });
-      console.log(cart);
-      const product = await ProductModel.findById(cart.cartItems[0].product);
-      console.log(product);
+      const currentProduct = cart.cartItems.find(
+        (item) => item._id.toString() === req.params.cartItemId,
+      );
+      const product = await ProductModel.findById(currentProduct.product);
       if (quantity > product.quantity) {
         throw new ApiError(
           `Quantity must be less than or equal to ${product.quantity}`,
