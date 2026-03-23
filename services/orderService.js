@@ -70,3 +70,53 @@ exports.getOrders = getAll(OrderModel);
  * @access   private/protect/admin
  */
 exports.getOrder = getOne(OrderModel);
+
+/**
+ * @desc     update order paid status to paid
+ * @route    PUT /api/v1/orders/:id/pay
+ * @access   private/protect/admin-manager
+ */
+exports.updateOrderToPaid = asyncHandler(async (req, res, next) => {
+  const order = await OrderModel.findById(req.params.id);
+  if (!order) {
+    return next(
+      new ApiError(`Order not found with this id ${req.params.id}`, 404),
+    );
+  }
+
+  // update order to paid and save in DB
+  order.isPaid = true;
+  order.paidAt = Date.now();
+  const updateOrder = await order.save();
+
+  res.status(200).json({
+    success: true,
+    message: "Order paid successfully",
+    data: updateOrder,
+  });
+});
+
+/**
+ * @desc     update order delivered to delivered
+ * @route    PUT /api/v1/orders/:id/deliver
+ * @access   private/protect/admin-manager
+ */
+exports.updateOrderToDelivered = asyncHandler(async (req, res, next) => {
+  const order = await OrderModel.findById(req.params.id);
+  if (!order) {
+    return next(
+      new ApiError(`Order not found with this id ${req.params.id}`, 404),
+    );
+  }
+
+  // update order to delivered and save in DB
+  order.isDelivered = true;
+  order.deliveredAt = Date.now();
+  const updateOrder = await order.save();
+
+  res.status(200).json({
+    success: true,
+    message: "Order delivered successfully",
+    data: updateOrder,
+  });
+});

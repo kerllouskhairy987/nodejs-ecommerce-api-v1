@@ -7,16 +7,30 @@ const {
   createCashOrder,
   getOrders,
   getOrder,
+  updateOrderToPaid,
+  updateOrderToDelivered,
 } = require("../services/orderService");
 const {
   createCashOrderValidator,
 } = require("../utils/validators/orderValidator");
 
 // -------------------------For Admin-Manager & User-------------------------
-router.use(protect);
+router.route("/").get(protect, getOrders);
+router.get("/:id", protect, getOrder);
 
-router.route("/").get(getOrders);
-router.get("/:id", getOrder);
+// -------------------------For Admin-Manager-------------------------
+router.put(
+  "/:id/pay",
+  protect,
+  allowedTo("admin", "manager"),
+  updateOrderToPaid,
+);
+router.put(
+  "/:id/deliver",
+  protect,
+  allowedTo("admin", "manager"),
+  updateOrderToDelivered,
+);
 
 // -------------------------For User-------------------------
 router.use(protect, allowedTo("user"));
