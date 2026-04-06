@@ -1,3 +1,8 @@
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "./config.env" });
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET);
 const asyncHandler = require("express-async-handler");
 const ApiError = require("../utils/apiError");
 const cartModel = require("../models/cartModel");
@@ -118,5 +123,55 @@ exports.updateOrderToDelivered = asyncHandler(async (req, res, next) => {
     success: true,
     message: "Order delivered successfully",
     data: updateOrder,
+  });
+});
+
+/**
+ * @desc     Get Checkout Session From Stripe And Send It To Client In Response
+ * @route    GET or POST /api/v1/orders/checkout-session/:cartItemId
+ * @access   private/protect/user
+ */
+exports.checkoutSession = asyncHandler(async (req, res, next) => {
+  // app settings admin can add them
+  const taxPrice = 0;
+  const shippingPrice = 0;
+
+  // 1) Get cart depend on cartItemId
+  const cart = await cartModel.findById(req.params.cartItemId);
+  if (!cart)
+    return next(
+      new ApiError(`Cart not found with this id ${req.params.cartItemId}`, 404),
+    );
+
+  // 2) Get order price depend on cart price [check if coupon apply or not]
+  const cartPrice = cart.totalPriceAfterDiscount
+    ? cart.totalPriceAfterDiscount
+    : cart.totalCartPrice;
+  const totalOrderPrice = cartPrice + taxPrice + shippingPrice;
+
+  // 3) create stripe checkout session
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        name: req.user.name,
+        amount: totalOrderPrice * 100,
+        currency: "egp", // not here
+        quantity: 1,
+      },
+    ],
+    mode: "payment",
+    success_url: `${req.protocol}://${req.get("host")}/orders`, // http://localhost:3000/orders ==> dynamic url
+    cancel_url: `${req.protocol}://${req.get("host")}/cart`, // http://localhost:3000/cart ==> dynamic url
+    // currency: "egp",
+    customer_email: req.user.email,
+    client_reference_id: req.params.cartItemId, // عشان لما العمله تنجح عايز اعمل create order
+    metadata: req.body.shippingAddress,
+  });
+
+  // 4) send session to response
+  res.status(200).json({
+    success: true,
+    message: "Checkout session created successfully",
+    session,
   });
 });

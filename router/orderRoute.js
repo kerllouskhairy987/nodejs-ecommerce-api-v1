@@ -9,6 +9,7 @@ const {
   getOrder,
   updateOrderToPaid,
   updateOrderToDelivered,
+  checkoutSession,
 } = require("../services/orderService");
 const {
   createCashOrderValidator,
@@ -36,5 +37,6 @@ router.put(
 router.use(protect, allowedTo("user"));
 
 router.post("/:cartItemId", createCashOrderValidator, createCashOrder);
+router.get("/checkout-session/:cartItemId", checkoutSession);
 
 module.exports = router;

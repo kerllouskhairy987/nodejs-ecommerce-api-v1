@@ -8,6 +8,9 @@ const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const cors = require("cors");
+const compression = require("compression");
+
 // files
 const dbConnection = require("./config/database");
 const ApiError = require("./utils/apiError");
@@ -23,6 +26,13 @@ dbConnection();
 
 // express app
 const app = express();
+
+// Enable Author Domain To Access Resources
+app.use(cors());
+
+// compress all responses
+app.use(compression());
+
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
