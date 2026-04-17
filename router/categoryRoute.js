@@ -27,7 +27,7 @@ router.use("/:categoryId/subCategories", subCategoriesRoute);
 // @route   /api/v1/categories/
 router
   .route("/")
-  .get(getListOfCategories)
+  .get(protect, getListOfCategories)
   .post(
     protect,
     allowedTo("admin", "manager"),

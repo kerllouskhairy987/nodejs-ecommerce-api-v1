@@ -38,12 +38,12 @@ router
     createProductValidator,
     postProduct,
   )
-  .get(getProducts);
+  .get(protect, getProducts);
 
 // @route   /api/v1/products/:id
 router
   .route("/:id")
-  .get(getProductValidator, getProduct)
+  .get(protect, getProductValidator, getProduct)
   .put(
     protect,
     allowedTo("admin", "manager"),

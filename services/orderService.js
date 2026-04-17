@@ -153,19 +153,26 @@ exports.checkoutSession = asyncHandler(async (req, res, next) => {
   const session = await stripe.checkout.sessions.create({
     line_items: [
       {
-        name: req.user.name,
-        amount: totalOrderPrice * 100,
-        currency: "egp", // not here
+        price_data: {
+          currency: "egp",
+          unit_amount: totalOrderPrice * 100,
+          product_data: {
+            name: req.user.name,
+            // description: "Comfortable cotton t-shirt",
+            // images: ["https://example.com/t-shirt.png"],
+          },
+        },
         quantity: 1,
       },
     ],
     mode: "payment",
     success_url: `${req.protocol}://${req.get("host")}/orders`, // http://localhost:3000/orders ==> dynamic url
     cancel_url: `${req.protocol}://${req.get("host")}/cart`, // http://localhost:3000/cart ==> dynamic url
-    // currency: "egp",
     customer_email: req.user.email,
     client_reference_id: req.params.cartItemId, // عشان لما العمله تنجح عايز اعمل create order
-    metadata: req.body.shippingAddress,
+    metadata: {
+      address: JSON.stringify(req.body.shippingAddress), // عشان لما العمله تنجح عايز اعمل create order
+    },
   });
 
   // 4) send session to response
