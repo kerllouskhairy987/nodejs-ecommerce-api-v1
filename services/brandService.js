@@ -1,6 +1,5 @@
 const asyncHandler = require("express-async-handler");
 const sharp = require("sharp");
-const { v4: uuidv4 } = require("uuid");
 
 const {
   deleteOne,
@@ -18,7 +17,7 @@ exports.uploadBrandImage = uploadSingleImage("image");
 
 // TODO: Middleware for resizing brand image
 exports.resizeBrandImage = asyncHandler(async (req, res, next) => {
-  const filename = `brand-${uuidv4()}-${Date.now()}.jpeg`;
+  const filename = `brand-${Date.now()}.jpeg`;
 
   if (req.file) {
     await sharp(req.file.buffer)

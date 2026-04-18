@@ -1,6 +1,5 @@
 const asyncHandler = require("express-async-handler");
 const sharp = require("sharp");
-const { v4: uuidv4 } = require("uuid");
 
 const CategoryModel = require("../models/categoryModel");
 const {
@@ -18,7 +17,7 @@ exports.uploadCategoryImage = uploadSingleImage("image");
 
 // TODO: Middleware for resizing category image
 exports.resizeCategoryImage = asyncHandler(async (req, res, next) => {
-  const filename = `category-${uuidv4()}-${Date.now()}.jpeg`;
+  const filename = `category-${Date.now()}.jpeg`;
 
   if (req.file) {
     await sharp(req.file.buffer)

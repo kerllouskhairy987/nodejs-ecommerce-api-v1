@@ -1,6 +1,5 @@
 const sharp = require("sharp");
 const asyncHandler = require("express-async-handler");
-const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcryptjs");
 const User = require("../models/userModel");
 
@@ -15,7 +14,7 @@ exports.uploadUserImage = uploadSingleImage("profileImg");
 
 // TODO: Middleware for resizing user image
 exports.resizeUserImage = asyncHandler(async (req, res, next) => {
-  const filename = `user-${uuidv4()}-${Date.now()}.jpeg`;
+  const filename = `user-${Date.now()}.jpeg`;
 
   if (req.file) {
     sharp(req.file.buffer)
