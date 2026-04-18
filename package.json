@@ -6,6 +6,9 @@
     "start:dev": "tsx watch ./server.js",
     "start": "cross-env NODE_ENV=production node ./server.js"
   },
+  "engines": {
+    "node": "22.22.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
