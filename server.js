@@ -17,6 +17,7 @@ const ApiError = require("./utils/apiError");
 const globalErrorHandlingMiddleware = require("./middlewares/errorHandlingMiddleware");
 // routes
 const mountRoutes = require("./router");
+const { webhookCheckout } = require("./services/orderService");
 
 dotenv.config({ path: "./config.env" });
 const PORT = process.env.PORT || 8000;
@@ -39,6 +40,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // TODO: serve on static files
 app.use(express.static(path.join(__dirname, "uploads")));
+
+// TODO: Checkout Webhooks
+app.post("/webhook-checkout", express.raw({ type: "application/json" }), webhookCheckout);
 
 // query parser for filtering on products
 app.set("query parser", "extended");
