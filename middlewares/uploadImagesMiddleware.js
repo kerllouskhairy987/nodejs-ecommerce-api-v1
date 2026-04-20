@@ -10,7 +10,11 @@ const multerOptions = () => {
       cb(new ApiError("Only images are allowed", 400), false);
     }
   };
-  const upload = multer({ storage, fileFilter });
+  const upload = multer({
+    storage,
+    fileFilter,
+    limits: { fileSize: 1024 * 1024 * 5, files: 5 }, // Limit file size to 5MB
+  });
 
   return upload;
 };

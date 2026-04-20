@@ -10,6 +10,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
 const compression = require("compression");
+const rateLimit = require("express-rate-limit");
 
 // files
 const dbConnection = require("./config/database");
@@ -34,15 +35,19 @@ app.use(cors());
 // compress all responses
 app.use(compression());
 
-// middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// middlewares ==> make parsing for data
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 // TODO: serve on static files
 app.use(express.static(path.join(__dirname, "uploads")));
 
 // TODO: Checkout Webhooks
-app.post("/webhook-checkout", express.raw({ type: "application/json" }), webhookCheckout);
+app.post(
+  "/webhook-checkout",
+  express.raw({ type: "application/json" }),
+  webhookCheckout,
+);
 
 // query parser for filtering on products
 app.set("query parser", "extended");
@@ -51,6 +56,16 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
   console.log(`mode: ${process.env.NODE_ENV}`);
 }
+
+// Limit each IP to 100 requests per `window` (here, per 15 minutes).
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 5,
+  standardHeaders: "draft-8",
+  message: "Too many requests from this IP, please try again after 15 minutes",
+});
+
+app.use("/api/v1/auth", limiter);
 
 // mount routes
 mountRoutes(app);
