@@ -7,6 +7,7 @@ const User = require("../models/userModel");
 const ApiError = require("../utils/apiError");
 const sendEmail = require("../utils/sendEmail");
 const generateToken = require("../utils/generateToken");
+const { sanitizeSingUp, sanitizeLogin } = require("../utils/sanitizeData");
 
 /**
  * @desc    signup
@@ -24,7 +25,7 @@ exports.signup = asyncHandler(async (req, res, next) => {
   // 2- Generate Token
   const token = generateToken(user._id);
 
-  res.status(201).json({ data: user, token });
+  res.status(201).json({ data: sanitizeSingUp(user), token });
 });
 
 /**
@@ -43,7 +44,7 @@ exports.login = asyncHandler(async (req, res, next) => {
   // 2) generate token
   const token = generateToken(user._id);
 
-  res.status(200).json({ data: user, token });
+  res.status(200).json({ data: sanitizeLogin(user), token });
 });
 
 /**

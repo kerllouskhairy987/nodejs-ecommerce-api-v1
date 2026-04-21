@@ -50,7 +50,7 @@ app.post(
 );
 
 // query parser for filtering on products
-app.set("query parser", "extended");
+// app.set("query parser", "extended");
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -60,11 +60,10 @@ if (process.env.NODE_ENV === "development") {
 // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  limit: 5,
+  limit: 50,
   standardHeaders: "draft-8",
   message: "Too many requests from this IP, please try again after 15 minutes",
 });
-
 app.use("/api/v1/auth", limiter);
 
 // mount routes
